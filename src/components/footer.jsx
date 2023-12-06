@@ -10,6 +10,7 @@ import whats from "../assets/footer/whats.svg"
 import mail from "../assets/footer/mail.png"
 import madro from "../assets/header/logo.webp"
 import correios from "../assets/footer/correios.png"
+import google from "../assets/footer/selogoogle.webp";
 
 export default function () {
     return (
@@ -27,6 +28,8 @@ export default function () {
                             <img src={facebook}></img>
                         </div>
                     </div>
+                </div>
+                <div className="footer-contacts-wraper">
                     <div className="contatos">
                         <div className="titulo-footer">
                             <h3>Métodos de pagamento</h3>
@@ -39,12 +42,30 @@ export default function () {
                         </div>
                     </div>
                 </div>
-
-                <div className="footer-contacts-wraper-center">
-                    <img src={madro} alt="logo"></img>
-
+                <div className="footer-contacts-wraper">
+                    <div className="contatos">
+                        <div className="titulo-footer">
+                            <h3>Segurança</h3>
+                        </div>
+                        <div className="icones-redes-footer">
+                            <img style={{ width: "100px" }} src={google}></img>
+                           
+                        </div>
+                    </div>
                 </div>
-                <div className="footer-contacts-wraper-right">
+               
+                <div className="footer-contacts-wraper">
+                    <div className="contatos">
+                        <div className="titulo-footer">
+                            <h3>Entrega</h3>
+                        </div>
+                        <div className="icones-redes-footer">
+                            <img style={{ width: "100px" }} src={correios}></img>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="footer-contacts-wraper">
                     <div className="contatos">
                         <div className="titulo-footer">
                             <h3>Contatos</h3>
@@ -68,16 +89,28 @@ export default function () {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="footer-contacts-wraper">
                     <div className="contatos">
                         <div className="titulo-footer">
-                            <h3>Entrega</h3>
+                            <h3>Departmentos</h3>
                         </div>
-                        <div className="icones-redes-footer-right">
-                            <img style={{width:"100px"}} src={correios}></img>
+                        <div className="deptos">
+                            
+                                <a><p>Inicio</p></a>
+                                <a><p>Produtos</p></a>
+                                <a><p>Fale conosco</p></a>
+                            
                         </div>
                     </div>
-
                 </div>
+
+
+               
+
+            </div>
+            <div className="footer-contacts-wraper-center">
+                <img src={madro} alt="logo"></img>
             </div>
             <div className="divisao"></div>
             <div className="texto-footer" >
