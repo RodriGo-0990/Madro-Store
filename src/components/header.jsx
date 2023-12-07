@@ -12,7 +12,9 @@ export default function header() {
                 <div className="center" >
                     {/* logomarca */}
                     <div className="logo">
+                        <a>
                         <img src={logoName} alt="logo"></img>
+                        </a>
                     </div>
 
                     {/* menu */}

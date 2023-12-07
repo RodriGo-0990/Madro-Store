@@ -10,7 +10,7 @@
     flex-wrap: wrap-reverse;
 }
 .footer-contacts-wraper{
-    margin: 30px;
+    margin: 20px;
 }
 .contatos{
     padding: 1em;
@@ -93,6 +93,9 @@
     @media (width< 512) {
         .texto-footer{
             font-size: xx-small;
+        }
+        .footer-contacts-wraper{
+            margin: 30px;
         }
     }
         
