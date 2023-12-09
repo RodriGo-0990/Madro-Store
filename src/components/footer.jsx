@@ -20,7 +20,7 @@ export default function () {
                 <div className="footer-contacts-wraper">
                     <div className="contatos">
                         <div className="titulo-footer">
-                            <h3>Nossas Redes</h3>
+                            <h3>NOSSAS REDES</h3>
                         </div>
                         <div className="icones-redes-footer">
                             <img src={instagram}></img>
@@ -32,7 +32,7 @@ export default function () {
                 <div className="footer-contacts-wraper">
                     <div className="contatos">
                         <div className="titulo-footer">
-                            <h3>Métodos de pagamento</h3>
+                            <h3>PAGAMENTO</h3>
                         </div>
                         <div className="icones-redes-footer">
                             <img src={master}></img>
@@ -45,7 +45,7 @@ export default function () {
                 <div className="footer-contacts-wraper">
                     <div className="contatos">
                         <div className="titulo-footer">
-                            <h3>Segurança</h3>
+                            <h3>SEGURANÇA</h3>
                         </div>
                         <div className="icones-redes-footer">
                             <img style={{ width: "100px" }} src={google}></img>
@@ -57,7 +57,7 @@ export default function () {
                 <div className="footer-contacts-wraper">
                     <div className="contatos">
                         <div className="titulo-footer">
-                            <h3>Entrega</h3>
+                            <h3>ENTREGA</h3>
                         </div>
                         <div className="icones-redes-footer">
                             <img style={{ width: "100px" }} src={correios}></img>
@@ -68,7 +68,7 @@ export default function () {
                 <div className="footer-contacts-wraper">
                     <div className="contatos">
                         <div className="titulo-footer">
-                            <h3>Contatos</h3>
+                            <h3>CONTATOS</h3>
                         </div>
                         <div className="icones-redes-footer">
                             <div className="text-contact">
@@ -93,7 +93,7 @@ export default function () {
                 <div className="footer-contacts-wraper">
                     <div className="contatos">
                         <div className="titulo-footer">
-                            <h3>Departmentos</h3>
+                            <h3>DEPARTAMENTOS</h3>
                         </div>
                         <div className="deptos">
                             

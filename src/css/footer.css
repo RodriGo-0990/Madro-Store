@@ -1,106 +1,110 @@
-.footer{
+.footer {
     margin: 0 auto;
-    background-color: #141114da;
+    background-color: #000000f4;
     width: 100%;
     flex: 1;
 }
-.footer-wraper{
+
+.footer-wraper {
+    margin-top: 2em;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap-reverse;
+
 }
-.footer-contacts-wraper{
+
+.footer-contacts-wraper {
     margin: 20px;
 }
-.contatos{
+
+.contatos {
     padding: 1em;
 }
-.icones-redes-footer img{
+
+.icones-redes-footer img {
     opacity: 0.7;
     width: 38px;
-    padding:2px;
+    padding: 2px;
 }
-.footer-contacts-wraper h3{
+
+.footer-contacts-wraper h3 {
+    font-family: sans-serif;
     opacity: 0.8;
 }
 
 
-.footer-contacts-wraper-center{
+.footer-contacts-wraper-center {
     display: grid;
     justify-content: center;
-    padding-bottom: 1em;    
+    padding-bottom: 1em;
 }
-.footer-contacts-wraper-center img{
+
+.footer-contacts-wraper-center img {
     width: 250px;
     opacity: 0.5;
 }
 
-.text-contact{
+.text-contact {
     display: flex;
     letter-spacing: 1px;
     padding-top: 4px;
     justify-content: start;
     opacity: 0.8;
 }
-.text-contact img{
+
+.text-contact img {
     width: 20px;
 }
-.deptos p{
+
+.deptos p {
     opacity: 0.8;
     cursor: pointer;
 }
 
-.divisao{
+.divisao {
     margin-left: 10%;
     margin-right: 10%;
     height: 1px;
     background-color: grey;
 }
 
-.texto-footer{
+.texto-footer {
     text-align: center;
     padding: 2em;
     margin-left: 3em;
-    margin-right: 3em; 
+    margin-right: 3em;
     opacity: 0.6;
 }
 
-@media(width < 1480px){
-    .footer-wraper{
+@media(width < 1480px) {
+    .footer-wraper {
         padding: 0em 10em;
     }
 }
 
-@media (width < 1205px ) {
-    .footer-contacts-wraper{
-        margin: 25px;
+@media (width < 1180px) {
+    .footer-wraper {
+        flex-wrap: wrap-reverse;
+        padding: 0 2.5em;
     }
-    .footer-wraper{
-        padding: 0em;
-    }
-    
+   
+
 }
-@media (width < 800px){
-    .icones-redes-footer img{
+
+@media (width < 800px) {
+    .icones-redes-footer img {
         opacity: 0.7;
-        width: 28px;
-        padding:2px;
     }
-    .footer-wraper{
+
+    .footer-wraper {
         justify-content: start;
+        padding: 0;
     }
-
-    @media (width< 512) {
-        .texto-footer{
-            font-size: xx-small;
-        }
-        .footer-contacts-wraper{
-            margin: 30px;
-        }
+    .contatos{
+        padding: 0;
+    }    
+}
+@media (width< 512) {
+    .texto-footer p{
+        font-size:small;
     }
-        
-    
-    
-
-
 }
