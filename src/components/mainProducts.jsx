@@ -17,9 +17,6 @@ export default function main() {
                 <Product />
             </section>
             <div className="div-slider-button">
-                <input type="radio" className="slider-button"></input>
-                <input type="radio" className="slider-button"></input>
-                <input type="radio" className="slider-button"></input>
             </div>
         </main>
     )
