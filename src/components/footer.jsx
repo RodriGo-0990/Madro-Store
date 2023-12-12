@@ -114,9 +114,7 @@ export default function () {
             </div>
             <div className="divisao"></div>
             <div className="texto-footer" >
-                <p>Aviso: Todos os preços e condições deste site são válidos apenas para compras na loja online e não se aplicam às lojas físicas.
-
-                    © 2023 Todos os direitos reservados. Madro Store CNPJ 00.000.000/0000-00. Rua da praia, 000 - Florianópolis/SC.
+                <p>© 2023 Todos os direitos reservados. Madro Store CNPJ 00.000.000/0000-00.
                 </p></div>
 
         </footer>

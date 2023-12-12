@@ -1,33 +1,43 @@
+@font-face {
+    font-family: lora;
+    src: url(Lora/static/Lora-Medium.ttf);
+  }
 .produto-wraper{
-    padding: 2em;
-    background-color: rgba(236, 236, 235, 0.315);
-    width: 100%;
-    font-family:serif;
-    margin: 15px;
-    height: 90%;   
+    background-color: #ececebf0;
+    font-family:lora;
+    box-shadow: 2px 3px 12px #00000042; 
+    width: 200px;
+}
+.produto-wraper:hover:not(.produto){
+    box-shadow: 15px 12px 9px #00000041;
+    transition: 1.4s;
 }
 .produto{
+    width: 100%;
     display: grid;
     align-items: center;
     justify-items: center;
     padding: 1em;
     cursor: pointer;
 }
-.produto h2{
+.produto h5{
     text-align: center;
 }
 .nome-produto{
-    color: rgba(68, 66, 66, 0.945);
-    padding:12px;
+    padding: 1em;
+    color: #deaabb;
 }
 .valor-produto{
-    padding: 12px;
-    font-size: 25px;
-    color: rgb(87, 6, 6);
+    color: #a97788;
     font-weight: 900;
 }
+.parcelamento{
+    color: #a97788;
+    font-size: 12px;
+    padding: 12px
+}
 .produto img{
-    width: 70%;
+    width: 100%;
     opacity: 0.7;
     transition: .5s ease-out;
 }
@@ -36,16 +46,17 @@
     scale: 1.05;
 }
 .button-comprar{
-    padding: 0.8em 2em;
-    font-family:serif;
-    color:white;
+    padding: 8px;
+    font-family:lora, serif;
+    color: white;
     border: 0;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
-    background-color: black;
+    background-color: #deaabb;
     cursor: pointer;
+    border-radius: 50px;
 }
 .button-comprar:hover{
-    background-color: rgb(44, 33, 47);
+    background-color: #deaabb9e;
     transition: 0.2s;
 }

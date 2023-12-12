@@ -4,6 +4,7 @@ import cart from "../assets/header/bag.png";
 import logoName from "../assets/header/logo.webp";
 import menu from "../assets/header/icons8-menu-26.svg";
 import search from "../assets/header/search.svg";
+import searchinput from "../assets/header/icons8-search.svg"
 
 export default function header() {
     return (
@@ -28,10 +29,10 @@ export default function header() {
 
                     {/* input de pesquisa */}
                     <div className="search-div">
-                        <input className="search-input" type="search" placeholder=" Buscar"></input>
-                        <label className="search-input-label">
-                            <img src={search}></img>
-                        </label>
+                        <input className="search-input" type="search" placeholder="O que você está procurando?"></input>
+                        <button className="input-search-button">
+                            <img className="search-image-button" src={searchinput} />
+                        </button>
                     </div>
 
                     {/* cadastro e carrinho */}

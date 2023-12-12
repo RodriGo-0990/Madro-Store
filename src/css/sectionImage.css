@@ -6,17 +6,16 @@
 }
 .image-banner{
     width: 100%;
-    padding:2em .70em ;
-    height: 400px;
+    padding:2em 1em ;
     object-fit: cover;
+    background-color: rgba(236, 177, 231, 0.171);
 }
 .swiper-button-prev::after,
 .swiper-button-next::after{
-    color: rgba(232, 228, 228, 0.674);
-    box-shadow: 1px 0px 10px black;
+    color: rgba(202, 137, 204, 0.938);
 }
 .swiper-pagination-bullet-active{
-    background-color: rgb(12, 12, 12) !important; 
+    background-color: #deaabb !important; 
 }
 .div-slider-button{
     margin: 2em;

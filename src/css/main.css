@@ -1,44 +1,36 @@
 .main-div {
-    background-color: rgba(233, 235, 234, 0.623);
+    background-color: #e9ebea9f;
     margin: 20px;
     position: relative;
 }
 
 .main-div>.titulo {
-    margin: 90px 50px 80px 50px;
+    margin: 20px 50px 50px 50px;
     text-align: center;
-    border: 2px;
-    border-block-end-style: groove;
-    border-color: rgb(161, 157, 157);
+    border: 1px;
+    border-block-end-style: solid;
+    border-color: #dca8d6a8;
 }
 
 .main-div>.titulo h1 {
-    font-weight: 900;
-    color: black;
+    font-weight: 800;
+    color: #d590a7;
     font-size: 34px;
+    letter-spacing: 1px;
+   
 }
 
 .main {
+    padding: 3em;
     margin: 0 auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
     width: 90%;
     overflow-x: hidden;
-    display: flex;
-    justify-content: center;
-    background-color: rgb(151, 124, 124);
+    background-color: #e5d6db;
 }
-
-@media (width < 500px) {
-    .main-div>.titulo h1 {
-        font-size: 24px;
-    }
-
-    .main-div>.titulo {
-        margin: 50px 50px 30px 50px;
-        text-align: center;
-        border: 2px;
-        border-block-end-style: groove;
-        border-color: rgb(161, 157, 157);
-    }
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+    position: relative;
+    margin-top: 10px;
+}
+.main >.swiper-wrapper{
+    padding:2em;
 }

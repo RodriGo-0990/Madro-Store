@@ -1,6 +1,4 @@
-import { useState,useEffect } from "react";
-import image from "../assets/section/papper.webp";
-import image2 from "../assets/section/fundo.jpg";
+import { useState, useEffect } from "react";
 import truck from "../assets/section/icons8-truck-50.png";
 import desconto from "../assets/section/desconto.png";
 import parcela from "../assets/section/fatura.png";
@@ -10,11 +8,34 @@ import { EffectFade, Autoplay } from 'swiper/modules'
 
 
 export default function SectionImage() {
+    
+    /*muda os itens que aparecem em tela sobre o 
+    carrosel de frete,desconto,parcelamento de acordo 
+    com o tamanho da tela*/
+    const [slidePerView, setSlidePerview] = useState(3)
+    
+    useEffect(() =>{
+
+        function handleResize() {
+          if(window.innerWidth < 700){
+            setSlidePerview(1)
+          }else{
+            setSlidePerview(3)
+          }  
+        }
+        handleResize();
+
+        window.addEventListener("resize",handleResize)
+    },[])
+    
+
+
+
     const data = [
-        { id: "1", image: image },
-        { id: "2", image: image2 },
-        { id: "3", image: image },
-        { id: "4", image: image2 }
+        { id: "1", image: "http://source.unsplash.com/random/800x250/?sunglasses-pink" },
+        { id: "2", image: "http://source.unsplash.com/random/800x250/?necklace" },
+        { id: "3", image: "http://source.unsplash.com/random/800x250/?lipstick" },
+        { id: "4", image: "http://source.unsplash.com/random/800x250/?ring" }
     ]
 
     return (
@@ -27,7 +48,6 @@ export default function SectionImage() {
                     slidesPerView={1}
                     pagination={{ clickable: true }}
                     navigation={{ enabled: true }}
-                    effect="fade"
                     loop="4"
                     autoplay={{ delay: 5000 }}
                     className="swiper"
@@ -46,9 +66,9 @@ export default function SectionImage() {
             <div className="div-slider-button">
             </div>
             <Swiper
-                modules={[]}
-                pagination={{enabled:true}}
-                slidesPerView={1}
+                modules={[]} 
+                pagination={{ clickable: true }}
+                slidesPerView={slidePerView}
                 className="frete-wraper">
                 <SwiperSlide className="fret-cart">
                     <div className="img-div">
