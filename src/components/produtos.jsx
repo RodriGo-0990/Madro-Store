@@ -1,13 +1,14 @@
 import "../css/produto.css";
-import aneis from "../assets/colares/brincos.jpg"
-export default function products(){
+export default function products({foto, nome, produto}){
     
     return(
         <section className="produto-wraper">
             <div className="produto">
-                <img className="imagens-produtos" src={aneis} alt="produto-foto"></img>
-                <h5 className="nome-produto" >Nome do produto</h5>
-                <div className="valor-produto">R$ 00,00</div>
+                <div className="image-produto">
+                <img  src={foto} alt="produto-foto"></img>
+                </div>
+                <h5 className="nome-produto" >{nome}</h5>
+                <div className="valor-produto">R$ {produto}</div>
                 <div className="parcelamento">3x de <strong>R$00,00</strong> sem juros</div>
                 <div className="div-button-comprar">
                     <button className="button-comprar">COMPRAR</button>

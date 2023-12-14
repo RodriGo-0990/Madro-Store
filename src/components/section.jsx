@@ -27,15 +27,12 @@ export default function SectionImage() {
 
         window.addEventListener("resize",handleResize)
     },[])
-    
-
-
 
     const data = [
-        { id: "1", image: "http://source.unsplash.com/random/800x250/?sunglasses-pink" },
-        { id: "2", image: "http://source.unsplash.com/random/800x250/?necklace" },
-        { id: "3", image: "http://source.unsplash.com/random/800x250/?lipstick" },
-        { id: "4", image: "http://source.unsplash.com/random/800x250/?ring" }
+        { id: "1", image: "http://source.unsplash.com/random/1000x250/?sunglasses-pink" },
+        { id: "2", image: "http://source.unsplash.com/random/1000x250/?necklace" },
+        { id: "3", image: "http://source.unsplash.com/random/1000x250/?lipstick" },
+        { id: "4", image: "http://source.unsplash.com/random/1000x250/?ring" }
     ]
 
     return (

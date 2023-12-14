@@ -1,0 +1,87 @@
+@font-face {
+    font-family: lora;
+    src: url(../Lora/static/Lora-Medium.ttf);
+  }
+
+.news-wrapper{
+    color: #daabba;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+    background-color: #ecc1cf81;
+    font-family: lora;
+    text-align: center;
+}
+.dados-wrapper{
+    width: 80%;
+    height: 70%;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(248, 239, 227);
+}
+.titulo-news{
+    letter-spacing: 4px;
+}
+.text-news{
+    padding: .2em;
+    font-size: 28px;
+}
+.sub-text-news{
+    padding: 1.5em;
+    font-size: 15px;
+}
+.input-email-div{
+    position: relative;
+    width: 70%;
+    display: flex;
+}
+.input-area{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #daabba;
+    color: #daabba;
+    border-radius: 10px;
+    outline: 0;
+    padding: 5px;
+    font-size: 25px;
+}
+.input-area::placeholder{
+    color: #daabba;
+    font-size: 18px;
+}
+.button-submit{
+    position: absolute;
+    top: 2px;
+    right: 1px;
+    width:45px;
+    height: 45px;
+    border: 0;
+    background-color: #00000000;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.button-submit img{
+    width:32px
+}
+@media(width < 780px){
+    .text-news {
+        font-size: 20px;
+    
+    }
+    .input-email-div{
+        width: 100%;   
+    }
+    .sub-text-news{
+        padding: 1.5em;
+        font-size: 12px;
+    }
+}
+@media(width < 390px){
+    .news-wrapper{
+        height: 500px;
+    }
+}

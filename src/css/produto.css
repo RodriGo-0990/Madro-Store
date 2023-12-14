@@ -3,10 +3,10 @@
     src: url(Lora/static/Lora-Medium.ttf);
   }
 .produto-wraper{
-    background-color: #ececebf0;
+    background-color: #f0f0efe2;
     font-family:lora;
     box-shadow: 2px 3px 12px #00000042; 
-    width: 200px;
+    width: 300px;
 }
 .produto-wraper:hover:not(.produto){
     box-shadow: 15px 12px 9px #00000041;
@@ -36,14 +36,18 @@
     font-size: 12px;
     padding: 12px
 }
+.image-produto{
+    height: 300px;
+}
 .produto img{
     width: 100%;
+    height: 100%;
     opacity: 0.7;
     transition: .5s ease-out;
 }
 .produto img:hover{
     opacity: 1;
-    scale: 1.05;
+    scale: 1.03;
 }
 .button-comprar{
     padding: 8px;
@@ -59,4 +63,16 @@
 .button-comprar:hover{
     background-color: #deaabb9e;
     transition: 0.2s;
+}
+
+@media(width < 400px){
+    .produto-wraper{
+        width: 250px;
+    }
+}
+
+@media(width < 370px){
+    .produto-wraper{
+        width: 200px;
+    }
 }
