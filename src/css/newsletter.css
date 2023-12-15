@@ -47,21 +47,22 @@
     border-radius: 10px;
     outline: 0;
     padding: 5px;
-    font-size: 25px;
+    font-size: 20px;
 }
 .input-area::placeholder{
     color: #daabba;
     font-size: 18px;
+    width: 100%;
 }
 .button-submit{
     position: absolute;
-    top: 2px;
-    right: 1px;
-    width:45px;
-    height: 45px;
+    top: 7px;
+    right: 5px;
+    width:35px;
+    height: 35px;
     border: 0;
-    background-color: #00000000;
-    border-radius: 100px;
+    background-color: #ffffff;
+  
     cursor: pointer;
 }
 .button-submit img{
@@ -80,8 +81,14 @@
         font-size: 12px;
     }
 }
-@media(width < 390px){
+@media(width < 490px){
     .news-wrapper{
         height: 500px;
+    }
+    .input-area{
+        font-size: 13px;
+    }
+    .dados-wrapper{
+        width: 90%;
     }
 }
