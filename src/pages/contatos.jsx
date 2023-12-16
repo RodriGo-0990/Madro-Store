@@ -1,13 +1,13 @@
-import '../css/contatos.css'
+import '../css/formulario.css'
 import Header from "../components/header"
 import Footer from '../components/footer'
-import { Form } from 'react-router-dom'
 export default function Contatos() {
     return (
         <>
             <Header />
             <div className="wrapper-contact">
-                <h1>contatos</h1>
+                <h1>Contatos</h1>
+                <p className='subtitle'>Mande sua mensagem</p>
                 <form className="wrapper-form">
                 <label>Nome Completo</label>
                 <input type='text'/>
@@ -17,7 +17,7 @@ export default function Contatos() {
                 <input type='text'/>
                 <label>Mensagem</label>
                 <textarea type='textarea'/>
-                <button className='submit'>Enviar</button>
+                <button disabled className='submit'>Enviar</button>
                 </form>
             </div>
             <Footer />

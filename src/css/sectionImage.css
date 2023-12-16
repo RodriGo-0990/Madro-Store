@@ -65,6 +65,9 @@
 .swiper-button-next::after{
     display: none;
 }
+    .image-banner{
+        padding: 1em 0;
+    }
 }
 
    

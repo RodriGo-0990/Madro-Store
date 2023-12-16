@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Contatos from './pages/contatos.jsx'
+import Cadastro from './pages/register/cadastro.jsx'
+import Login from './pages/register/login.jsx'
 import './index.css'
 
 //****Router */
@@ -24,6 +26,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path='/Madro-Store' element={<App/>} />
       <Route path='/Madro-Store/contatos' element={<Contatos />}/>
+      <Route path='/Madro-Store/cadastro' element={<Cadastro />}/>
+      <Route path='/Madro-Store/login' element={<Login />}/>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>,
