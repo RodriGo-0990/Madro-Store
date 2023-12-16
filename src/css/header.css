@@ -217,7 +217,7 @@ a:hover {
     background-color:#d891a9;
     z-index: 9999;
     transition:width 0.3s;
-    height: 97vh;
+    height: calc(100vh - 16px);
     box-shadow:-2px 3px 13px black;    
     width: 0%;
 }
@@ -233,9 +233,9 @@ a:hover {
     background-color:#d891a9;
     z-index: 9999;
     transition:width 0.3s;
-    height: 97vh;
+    height: calc(100vh - 16px);
     box-shadow:-2px 3px 13px black;
-    width: 80%;
+    width:calc(80vw - 16px);
 }
 .header-hidden-menu{
     padding: 30px 10px 10px 20px;
