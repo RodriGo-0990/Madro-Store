@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import truck from "../assets/section/icons8-truck-50.png";
-import desconto from "../assets/section/desconto.png";
-import parcela from "../assets/section/fatura.png";
+import truck from "../assets/section/truck.svg";
+import desconto from "../assets/section/desconto.svg";
+import parcela from "../assets/section/card.svg";
 import "../css/sectionImage.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from 'swiper/modules'

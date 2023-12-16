@@ -40,37 +40,37 @@ export default function Main(props) {
                     <SwiperSlide>
                         <Product 
                             foto={props.fotos[0]}
-                            produto={props.valores[0]}
+                            valor={props.valores[0]}
                             nome={props.nomes[0]} />
                     </SwiperSlide>
                     <SwiperSlide>
                         <Product 
                             foto={props.fotos[1]}
-                            produto={props.valores[1]}
+                            valor={props.valores[1]}
                             nome={props.nomes[1]} />
                     </SwiperSlide>
                     <SwiperSlide>
                         <Product 
                             foto={props.fotos[2]}
-                            produto={props.valores[2]}
+                            valor={props.valores[2]}
                             nome={props.nomes[2]} />
                     </SwiperSlide>
                     <SwiperSlide>
                         <Product 
                             foto={props.fotos[3]}
-                            produto={props.valores[3]}
+                            valor={props.valores[3]}
                             nome={props.nomes[3]} />
                     </SwiperSlide>
                     <SwiperSlide>
                         <Product 
                             foto={props.fotos[4]}
-                            produto={props.valores[4]}
+                            valor={props.valores[4]}
                             nome={props.nomes[4]} />
                     </SwiperSlide>
                     <SwiperSlide>
                         <Product 
                             foto={props.fotos[5]}
-                            produto={props.valores[5]}
+                            valor={props.valores[5]}
                             nome={props.nomes[5]} />
                     </SwiperSlide>
 

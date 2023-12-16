@@ -25,15 +25,15 @@
 .frete-wraper {
     background-color: rgb(253, 253, 253);
     display: flex;
-    color: black;
+    color: #b57d90;
     justify-content: space-between;
     align-items: center;
     padding: 1em 10em;
     margin: 0 auto;
 }
 .frete-wraper h4 {
-    font-family: Helvetica;
     font-weight: 1000;
+    color: #ba5576;
     text-align: center;
 }
 .frete-wraper p {
@@ -45,9 +45,10 @@
     justify-content: center;
     width: 100%;
 }
-.swiper-w.swiper-android .swiper-slide, .swiper-ios .swiper-slide, .swiper-wrapper{
-    padding-bottom:2em !important;
+.img-div img{
+    width:48px;
 }
+
 @media (width < 1000px){
     .frete-wraper {
         padding: 1em;
@@ -61,10 +62,6 @@
     }
 }
 @media (width <500px) {
-    .swiper-button-prev::after,
-.swiper-button-next::after{
-    display: none;
-}
     .image-banner{
         padding: 1em 0;
     }

@@ -34,7 +34,7 @@ function App() {
       <Main
         titulo="Destaques"
         fotos={[brincos2, argolasmile, colarestrela, oculos, oculos2 , pulseira]}
-        valores={["29,90", "29,95", "28,90", "109,90", "109,90", "26,90"]}
+        valores={[29.90, 29.95, 28.90, 109.90, 109.90, 26.90]}
         nomes={['Brincos Argola Friz', 'Argola Smile', 'Colar Estrela ',
           'Óculos cat', 'Óculos Pink', "Pulseira Coração "]}
           />
@@ -43,7 +43,7 @@ function App() {
       <Main
         titulo="Lançamentos"
         fotos={[brincos, brincos1, colar, colar2, colarcoracao, colarcoracao2]}
-        valores={["23,90", "28,75", "28,90", "33,90", "34,90", "44,90"]}
+        valores={[23.90, 28.75, 28.90, 33.90, 34.90, 44.90]}
         nomes={['Brincos dourados','Brincos perolas','Pingente prata','Correntinha de pedra roxa', 'Coração de prata', "S2 Amor para sempre S2"]}
         />
       <Newsletter/>

@@ -57,33 +57,33 @@ export default function header() {
 
                             </li>
                             <li className="item-menu-produtos">
-                                <Link>
+                                <Link to="/Madro-Store/produtos">
                                     Produtos
                                 </Link>
 
                                 <ul className="sub-menu">
                                     <li>
-                                        <Link>
+                                        <Link to="/Madro-Store/produtos" >
                                             Anéis
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link>
+                                        <Link to="/Madro-Store/produtos">
                                             Pulseiras
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link>
+                                        <Link to="/Madro-Store/produtos">
                                             Brincos
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link>
+                                        <Link to="/Madro-Store/produtos">
                                             Colar
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link>
+                                        <Link to="/Madro-Store/produtos">
                                             Òculos
                                         </Link>
                                     </li>
@@ -164,28 +164,38 @@ export default function header() {
                                 
                                     <ul className="hidden-submenu" id="products">
                                         <li>
-                                            <Link>
+                                            <Link to="/Madro-Store/produtos">
+                                                Todos os produtos
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/Madro-Store/produtos">
                                                 Anéis
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link>
+                                            <Link to="/Madro-Store/produtos">
                                                 Pulseiras
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link>
+                                            <Link to="/Madro-Store/produtos">
                                                 Brincos
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link>
+                                            <Link to="/Madro-Store/produtos">
                                                 Colar
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link>
+                                            <Link to="/Madro-Store/produtos">
                                                 Òculos
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/Madro-Store/produtos">
+                                                Lançamentos
                                             </Link>
                                         </li>
                                     </ul>
