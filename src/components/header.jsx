@@ -63,27 +63,27 @@ export default function header() {
 
                                 <ul className="sub-menu">
                                     <li>
-                                        <Link to="/Madro-Store/produtos" >
+                                        <Link to="/Madro-Store/produtos/Anéis" >
                                             Anéis
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/Madro-Store/produtos">
+                                        <Link to="/Madro-Store/produtos/Pulseira">
                                             Pulseiras
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/Madro-Store/produtos">
+                                        <Link to="/Madro-Store/produtos/Brincos">
                                             Brincos
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/Madro-Store/produtos">
+                                        <Link to="/Madro-Store/produtos/Colar">
                                             Colar
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/Madro-Store/produtos">
+                                        <Link to="/Madro-Store/produtos/Óculos">
                                             Òculos
                                         </Link>
                                     </li>
@@ -146,7 +146,7 @@ export default function header() {
                             <button onClick={setState} className="menu-div-mobile">
                                 <img src={menu}></img>
                             </button>
-                            <a href="https://www.instagram.com/madro_/" target="blank">
+                            <a href="" target="blank">
                                 <img src={insta} style={{width:"28px", opacity:"0.6"}} ></img>
                             </a>
                         </div>
@@ -163,39 +163,34 @@ export default function header() {
                                     </Link>
                                 
                                     <ul className="hidden-submenu" id="products">
-                                        <li>
+                                        <li onClick={setState}>
                                             <Link to="/Madro-Store/produtos">
                                                 Todos os produtos
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link to="/Madro-Store/produtos">
+                                        <li onClick={setState}>
+                                            <Link to="/Madro-Store/produtos/Anéis">
                                                 Anéis
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link to="/Madro-Store/produtos">
+                                        <li onClick={setState}>
+                                            <Link to="/Madro-Store/produtos/Pulseira">
                                                 Pulseiras
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link to="/Madro-Store/produtos">
+                                        <li onClick={setState}> 
+                                            <Link to="/Madro-Store/produtos/Brincos">
                                                 Brincos
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link to="/Madro-Store/produtos">
+                                        <li onClick={setState}>
+                                            <Link to="/Madro-Store/produtos/Colar">
                                                 Colar
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link to="/Madro-Store/produtos">
-                                                Òculos
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/Madro-Store/produtos">
-                                                Lançamentos
+                                        <li onClick={setState} >
+                                            <Link to="/Madro-Store/produtos/Óculos">
+                                                Óculos
                                             </Link>
                                         </li>
                                     </ul>

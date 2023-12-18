@@ -25,7 +25,7 @@
 }
 .nome-produto{
     padding: 1em;
-    color: #deaabb;
+    color: var(--background-color);
 }
 .valor-produto{
     color: #a97788;
@@ -56,7 +56,7 @@
     border: 0;
     font-size: 15px;
     font-weight: bold;
-    background-color: #deaabb;
+    background-color: var(--background-color);
     cursor: pointer;
     border-radius: 50px;
 }

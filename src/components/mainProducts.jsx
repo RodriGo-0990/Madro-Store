@@ -3,17 +3,16 @@ import Product from "./produtos";
 import { useEffect, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react";
 export default function Main(props) {
-    
     /*muda quantidade de itens que aparecem em tela sobre o 
     carrosel de produtos de acordo 
     com o tamanho da tela*/
-    const [slidePerView, setSlidePerview] = useState(3)
+    const [slidePerView, setSlidePerview] = useState(4);
 
     useEffect(() => {
 
         function handleResize() {
 
-            setSlidePerview(window.innerWidth < 500 ? 1 : 4)
+            setSlidePerview(window.innerWidth < 500 ? 1 : window.innerWidth < 1000 ? 3 : 4)
 
         }
         handleResize();
@@ -37,42 +36,15 @@ export default function Main(props) {
                     centeredSlides={true}
                     initialSlide={3}
                 >
-                    <SwiperSlide>
-                        <Product 
-                            foto={props.fotos[0]}
-                            valor={props.valores[0]}
-                            nome={props.nomes[0]} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product 
-                            foto={props.fotos[1]}
-                            valor={props.valores[1]}
-                            nome={props.nomes[1]} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product 
-                            foto={props.fotos[2]}
-                            valor={props.valores[2]}
-                            nome={props.nomes[2]} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product 
-                            foto={props.fotos[3]}
-                            valor={props.valores[3]}
-                            nome={props.nomes[3]} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product 
-                            foto={props.fotos[4]}
-                            valor={props.valores[4]}
-                            nome={props.nomes[4]} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product 
-                            foto={props.fotos[5]}
-                            valor={props.valores[5]}
-                            nome={props.nomes[5]} />
-                    </SwiperSlide>
+                    {props.produtos.map((produto, index) => (
+                        <SwiperSlide key={index}>
+                            <Product
+                                foto={produto.props.foto}
+                                nome={produto.props.nome}
+                                valor={produto.props.valor}
+                            />
+                        </SwiperSlide>
+                    ))}
 
                 </Swiper>
             </section>

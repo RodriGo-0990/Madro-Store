@@ -1,6 +1,7 @@
 import '../../css/formulario.css'
 import Header from "../../components/header"
 import Footer from '../../components/footer'
+import Siganos from '../../components/siganos'
 export default function Login() {
     return (
         <>
@@ -16,6 +17,8 @@ export default function Login() {
                 <button disabled className='submit'>Entrar</button>
                 </form>
             </div>
+            <Siganos/>
+            <Void/>
             <Footer />
         </>
 

@@ -1,6 +1,8 @@
 import '../../css/formulario.css'
 import Header from "../../components/header"
 import Footer from '../../components/footer'
+import Siganos from '../../components/siganos'
+import Void from '../../components/void'
 export default function Cadastro() {
     return (
         <>
@@ -22,6 +24,8 @@ export default function Cadastro() {
                 <button disabled className='submit'>Criar</button>
                 </form>
             </div>
+            <Siganos/>
+            <Void/>
             <Footer />
         </>
 

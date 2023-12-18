@@ -10,6 +10,7 @@
 }
 :root{
   color: white;
+  --background-color: #daabbd;
 }
 .root{
   font-family:lora;

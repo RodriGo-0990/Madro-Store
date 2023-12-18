@@ -1,6 +1,8 @@
 import '../css/formulario.css'
 import Header from "../components/header"
 import Footer from '../components/footer'
+import Void from '../components/void'
+import Siganos from '../components/siganos'
 export default function Contatos() {
     return (
         <>
@@ -20,6 +22,8 @@ export default function Contatos() {
                 <button disabled className='submit'>Enviar</button>
                 </form>
             </div>
+            <Siganos/>
+            <Void/>
             <Footer />
         </>
 

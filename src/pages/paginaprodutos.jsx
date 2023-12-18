@@ -1,7 +1,8 @@
 import '../css/paginaprodutos.css'
 import React from 'react';
-import {useEffect,useState} from 'react'
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Main from '../components/mainProducts'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Produtos from '../components/produtos'
@@ -24,37 +25,43 @@ import colarcoracao from "../assets/produtos/colarcoracao.png"
 import colarcoracao2 from "../assets/produtos/colarcoracao2.png"
 
 export default function PaginaProdutos() {
+    // base de produtos
     const produtoObjetos = [
         <Produtos foto={brincos2} nome={"Brincos Argola Friz"} valor={29.90} />,
-        <Produtos foto={argolasmile} nome={"Argola Smile"} valor={29.95} />,
+        <Produtos foto={argolasmile} nome={"Brinco Argola Smile"} valor={29.95} />,
         <Produtos foto={colarestrela} nome={"Colar Estrela"} valor={28.90} />,
         <Produtos foto={oculos} nome={"Óculos cat"} valor={109.90} />,
         <Produtos foto={oculos2} nome={"Óculos Pink"} valor={109.90} />,
         <Produtos foto={pulseira} nome={"Pulseira Coração"} valor={26.90} />,
         <Produtos foto={brincos} nome={"Brincos dourados"} valor={23.90} />,
         <Produtos foto={brincos1} nome={"Brincos perolas"} valor={28.75} />,
-        <Produtos foto={colar} nome={"Pingente prata"} valor={28.90} />,
-        <Produtos foto={colar2} nome={"Correntinha de pedra roxa"} valor={33.90} />,
-        <Produtos foto={colarcoracao} nome={"Coração de prata"} valor={34.90} />,
-        <Produtos foto={colarcoracao2} nome={"S2 Amor para sempre S2"} valor={44.90} />,]
+        <Produtos foto={colar} nome={"Colar Pingente prata"} valor={28.90} />,
+        <Produtos foto={colar2} nome={"Colar de pedra roxa"} valor={33.90} />,
+        <Produtos foto={colarcoracao} nome={"Colar Coração de prata"} valor={34.90} />,
+        <Produtos foto={colarcoracao2} nome={"Colar S2 Amor para sempre S2"} valor={44.90} />,]
 
-
-    /*muda quantidade de itens que aparecem em tela sobre o 
-    carrosel de produtos de acordo 
-    com o tamanho da tela*/
-    const [slidePerView, setSlidePerview] = useState(2)
-
+    //capturar a categoria pela URL 
+    const { categorie } = useParams();
+    //seta categoria ou produtos gerais
+    const [categoria, setCategory] = useState();
     useEffect(() => {
+        if (categorie == null ?
+            setCategory("Produtos") : setCategory(categorie));
+    }, [categorie])
 
-        function handleResize() {
-
-            setSlidePerview(window.innerWidth < 500 ? 1 : 2)
-
+    // "pesquisa" os produtos por nome e retorna a lista
+    const [produtosFiltrados, setProdutosFiltrados] = useState([]);
+    useEffect(() => {
+        if(categorie != null){
+        // Filtra os produtos com base na categoria
+        const Filtro = produtoObjetos.filter(produto =>
+            produto.props.nome.toLowerCase().includes(categorie.toLowerCase())
+        );
+        setProdutosFiltrados(Filtro);
+        }else{
+            setProdutosFiltrados(produtoObjetos);
         }
-        handleResize();
-
-        window.addEventListener("resize", handleResize)
-    }, [])
+    }, [categorie]);
 
     return (
         <>
@@ -63,39 +70,25 @@ export default function PaginaProdutos() {
             <section className='main-content'>
                 <div className='mid-content' >
                     <div className='title'>
-                        <h1>Titulo</h1>
+                        <h1>{categoria}</h1>
                     </div>
                     <div className='content-wide-screen'>
-                        {produtoObjetos.map((produto, index) => (
+                        {produtosFiltrados.map((produto, index) => (
                             <React.Fragment key={index}>
                                 {produto}
                             </React.Fragment>
                         ))}
                     </div>
-
-
-                    <div className='content-mobile'>
-                        <Swiper
-                            slidesPerView={2}
-                            spaceBetween={250}
-                            pagination={{ clickable: true }}
-                            navigation={{ enabled: true }}
-                            loop={true}
-                            centeredSlides={false}  
-                            initialSlide={1}
-                            className='content-mobile-swiper'
-                        >
-                             {produtoObjetos.map((produto, index) => (
-                            <SwiperSlide key={index}>
-                                {produto}
-                            </SwiperSlide>
-                        ))}
-
-                        </Swiper>
-                    </div>
                 </div>
             </section>
-           <Void/>
+            {/* componente swiper para telas mobile */}
+            <div className='content-mobile'>
+                <Main
+                    titulo={categoria}
+                    produtos={produtosFiltrados}
+                />
+            </div>
+            <Void />
             <Paralax foto="http://source.unsplash.com/random/1400x850/?gift" />
             <Void />
             <Siganos />

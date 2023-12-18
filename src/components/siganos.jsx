@@ -13,7 +13,7 @@ export default function Siganos() {
                     <p>Estamos no Instagram</p>
                 </div>
                 <div>
-                    <a href="https://www.instagram.com/madro_/" rel="noopener noreferrer" target="_blank">
+                    <a href="" rel="noopener noreferrer" target="_blank">
                         <button className="button">
                             SIGA-NOS
                         </button>
