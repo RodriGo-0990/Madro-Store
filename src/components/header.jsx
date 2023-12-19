@@ -68,7 +68,7 @@ export default function header() {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/Madro-Store/produtos/Pulseira">
+                                        <Link to="/Madro-Store/produtos/Pulseiras">
                                             Pulseiras
                                         </Link>
                                     </li>
@@ -78,13 +78,13 @@ export default function header() {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/Madro-Store/produtos/Colar">
+                                        <Link to="/Madro-Store/produtos/Colares">
                                             Colar
                                         </Link>
                                     </li>
                                     <li>
                                         <Link to="/Madro-Store/produtos/Óculos">
-                                            Òculos
+                                            Óculos
                                         </Link>
                                     </li>
                                 </ul>
@@ -145,10 +145,7 @@ export default function header() {
                         <div className="header-hidden-menu">
                             <button onClick={setState} className="menu-div-mobile">
                                 <img src={menu}></img>
-                            </button>
-                            <a href="" target="blank">
-                                <img src={insta} style={{width:"28px", opacity:"0.6"}} ></img>
-                            </a>
+                            </button>                            
                         </div>
                         <div className="wrapper-menu-list">
                             <ul className="hidden-menu-list">
@@ -174,7 +171,7 @@ export default function header() {
                                             </Link>
                                         </li>
                                         <li onClick={setState}>
-                                            <Link to="/Madro-Store/produtos/Pulseira">
+                                            <Link to="/Madro-Store/produtos/Pulseiras">
                                                 Pulseiras
                                             </Link>
                                         </li>
@@ -184,7 +181,7 @@ export default function header() {
                                             </Link>
                                         </li>
                                         <li onClick={setState}>
-                                            <Link to="/Madro-Store/produtos/Colar">
+                                            <Link to="/Madro-Store/produtos/Colares">
                                                 Colar
                                             </Link>
                                         </li>
@@ -196,7 +193,7 @@ export default function header() {
                                     </ul>
                                 </li>
                                 <li>
-                                    <Link to="/Madro-Store/contatos">
+                                    <Link to="/Madro-Store/Contatos">
                                         contatos
                                     </Link>
                                 </li>

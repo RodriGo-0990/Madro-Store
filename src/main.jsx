@@ -5,6 +5,7 @@ import Contatos from './pages/contatos.jsx'
 import Cadastro from './pages/register/cadastro.jsx'
 import Login from './pages/register/login.jsx'
 import PaginaProdutos from './pages/paginaprodutos.jsx'
+import ProdutoDescricao from './pages/produtodescricao.jsx'
 import './index.css'
 
 //****Router */
@@ -31,7 +32,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/Madro-Store/login' element={<Login />}/>
       <Route path='/Madro-Store/produtos' element={<PaginaProdutos />}/>
       <Route path='/Madro-Store/produtos/:categorie' element={<PaginaProdutos />}/>
-
+      <Route path='/Madro-Store/produtodescricao' element={<ProdutoDescricao/>}/>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>,

@@ -7,6 +7,7 @@ export default function Contatos() {
     return (
         <>
             <Header />
+            <Void/>
             <div className="wrapper-contact">
                 <h1>Contatos</h1>
                 <p className='subtitle'>Mande sua mensagem</p>
@@ -22,6 +23,7 @@ export default function Contatos() {
                 <button disabled className='submit'>Enviar</button>
                 </form>
             </div>
+            <Void/>
             <Siganos/>
             <Void/>
             <Footer />

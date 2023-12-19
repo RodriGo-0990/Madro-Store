@@ -66,6 +66,14 @@ textarea{
     resize: none;
     
 }
+@media (width <600px){
+    .wrapper-form{
+        width: 100%;
+    }
+    .wrapper-contact{
+        margin:0;
+    }
+}
 @media(width < 400px){
     .wrapper-form{
         width: 100%;

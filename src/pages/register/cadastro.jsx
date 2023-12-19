@@ -7,6 +7,7 @@ export default function Cadastro() {
     return (
         <>
             <Header />
+            <Void/>
             <div className="wrapper-contact">
                 <h1>Crie uma conta</h1>
                 <p className='subtitle'>Compre mais rápido e acompanhe seus pedidos.</p>
@@ -24,6 +25,7 @@ export default function Cadastro() {
                 <button disabled className='submit'>Criar</button>
                 </form>
             </div>
+            <Void/>
             <Siganos/>
             <Void/>
             <Footer />

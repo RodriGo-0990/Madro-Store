@@ -1,4 +1,6 @@
 import "../css/produto.css";
+import eye from '../assets/produtos/eye.svg'
+import { Link } from "react-router-dom";
 export default function products({ foto, nome, valor }) {
     let valorParcelado = valor / 3;
     // Usando toFixed para definir duas casas decimais e toString para converter em string
@@ -16,6 +18,9 @@ export default function products({ foto, nome, valor }) {
                 <div className="parcelamento"><p>3x de <strong> R$ {valorFormatado}</strong> sem juros</p></div>
                 <div className="div-button-comprar">
                     <button className="button-comprar">COMPRAR</button>
+                    <Link to="/Madro-Store/produtodescricao">
+                        <button className="button-ver"><img src={eye} /></button>
+                    </Link>
                 </div>
             </div>
         </section>

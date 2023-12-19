@@ -1,8 +1,17 @@
-import { useState, useEffect } from "react";
+import "../css/sectionImage.css";
+
+import dicanatal from "../assets/madro/dica_natal.jpeg";
+import dicamae from "../assets/madro/dica_mae.jpeg";
+import dicaamiga from "../assets/madro/amiga.jpeg";
+import dicairma from "../assets/madro/irma.jpeg";
+import novidades from "../assets/madro/novidades.jpg";
+
+
 import truck from "../assets/section/truck.svg";
 import desconto from "../assets/section/desconto.svg";
 import parcela from "../assets/section/card.svg";
-import "../css/sectionImage.css";
+
+import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from 'swiper/modules'
 
@@ -29,10 +38,11 @@ export default function SectionImage() {
     },[])
 
     const data = [
-        { id: "1", image: "http://source.unsplash.com/random/1000x250/?sunglasses-pink" },
-        { id: "2", image: "http://source.unsplash.com/random/1000x250/?necklace" },
-        { id: "3", image: "http://source.unsplash.com/random/1000x250/?lipstick" },
-        { id: "4", image: "http://source.unsplash.com/random/1000x250/?ring" }
+        { id: "1", image: dicanatal },
+        { id: "2", image: dicamae },
+        { id: "3", image: dicairma},
+        { id: "4", image: dicaamiga },
+        { id: "5", image: novidades}
     ]
 
     return (

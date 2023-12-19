@@ -218,7 +218,7 @@ a:hover {
     background-color:#d891a9;
     z-index: 9999;
     transition:width 0.3s;
-    height: calc(100vh - 16px);
+    height: 100vh;
     box-shadow:-2px 3px 13px black;    
     width: 0%;
 }
@@ -234,18 +234,21 @@ a:hover {
     background-color:#d891a9;
     z-index: 9999;
     transition:width 0.3s;
-    height: calc(100vh - 16px);
+    height: 100vh;
     box-shadow:-2px 3px 13px black;
     width:calc(80vw - 16px);
 }
 .header-hidden-menu{
-    padding: .3em .1em .1em .2em;
+    padding: 2em .1em .1em .2em;
     width: 100%;
     border-bottom: 1px solid #a9818e;
     display: flex;
     justify-content: space-between;
 }
 .wrapper-menu-list{
+
+    position: fixed;
+    top: 130px;
     font-size: 1.5em;
     font-weight:600;
     width: 100%;
@@ -279,6 +282,7 @@ a:hover {
 
 }
 .account-div{
+    position: fixed;
     width: 100%;
     padding: 1em;
     display: flex;
@@ -347,4 +351,11 @@ a:hover {
     .logo {
         display: none;
     }
+    .hidden-menu-list{
+        font-size: 16px;
+    }
+    .wrapper-menu-list{
+        top: 70px;
+    }
+  
 }

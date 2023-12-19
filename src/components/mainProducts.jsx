@@ -42,6 +42,7 @@ export default function Main(props) {
                                 foto={produto.props.foto}
                                 nome={produto.props.nome}
                                 valor={produto.props.valor}
+                                categoria={produto.props.categoria}
                             />
                         </SwiperSlide>
                     ))}
