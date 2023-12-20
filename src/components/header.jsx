@@ -1,22 +1,34 @@
 import "../css/header.css";
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import user from "../assets/header/user.svg";
 import cart from "../assets/header/bag.png";
 import logoName from "../assets/header/logo.webp";
 import menu from "../assets/header/icons8-menu-26.svg";
+import Menucart from "../components/cart";
 import search from "../assets/header/search.svg";
 import searchinput from "../assets/header/icons8-search.svg"
-import insta from "../assets/header/blackinstagram-60.svg";
 import { Link } from 'react-router-dom'
-export default function header() {
+import actionTypes from '../Redux/cart/actiontype'
 
-    
+
+export default function Header() {
+    // ===altera o estado de ativo/desativo 
+    //  do menu do carrinho de compras===//
+    const dispatch = useDispatch();
+    const changeActiveState = () => {
+        dispatch({
+            type: actionTypes.active,
+        })
+    }
+
+
     //menu mobile lateral
     const [classname, setActive] = useState(false)
     const setState = () => {
         setActive(!classname);
     }
-    
+
     //sub menu de produtos do menu mobile
     const submenu = document.getElementById("products");
     function toggleSubMenu() {
@@ -126,7 +138,9 @@ export default function header() {
                         </div>
                         <div className="icons-log-cart" >
                             <div className="label-log-cart">
-                                <img className="img-log-cart" id="cart" src={cart} alt="cart"></img>
+                                
+                                <img onClick={changeActiveState} className="img-log-cart" id="cart" src={cart} alt="cart"></img>
+                                
                             </div>
                         </div>
                     </div>
@@ -141,11 +155,11 @@ export default function header() {
                         </button>
                     </div>
                     {/* menu lateral */}
-                    <div className={classname ? "show-menu" :"hidden-menu" } id="menu-hidden">
+                    <div className={classname ? "show-menu" : "hidden-menu"} id="menu-hidden">
                         <div className="header-hidden-menu">
                             <button onClick={setState} className="menu-div-mobile">
                                 <img src={menu}></img>
-                            </button>                            
+                            </button>
                         </div>
                         <div className="wrapper-menu-list">
                             <ul className="hidden-menu-list">
@@ -158,7 +172,7 @@ export default function header() {
                                     <Link>
                                         Produtos
                                     </Link>
-                                
+
                                     <ul className="hidden-submenu" id="products">
                                         <li onClick={setState}>
                                             <Link to="/Madro-Store/produtos">
@@ -175,7 +189,7 @@ export default function header() {
                                                 Pulseiras
                                             </Link>
                                         </li>
-                                        <li onClick={setState}> 
+                                        <li onClick={setState}>
                                             <Link to="/Madro-Store/produtos/Brincos">
                                                 Brincos
                                             </Link>
@@ -201,10 +215,10 @@ export default function header() {
                         </div>
                         <div className="account-div">
                             <Link to="/Madro-Store/login">
-                            <button>Iniciar sessão</button>
+                                <button>Iniciar sessão</button>
                             </Link>
                             <Link to="/Madro-Store/cadastro">
-                            <button>Conta</button>
+                                <button>Conta</button>
                             </Link>
                         </div>
                     </div>
@@ -216,6 +230,8 @@ export default function header() {
                 </div>
                 {/* icones mobile */}
 
+                {/* menu lateral */}
+                <Menucart />
             </header >
         </>
     )

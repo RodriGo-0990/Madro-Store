@@ -1,37 +1,61 @@
 import '../css/produtodescricao.css'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import Header from '../components/header'
 import Void from '../components/void'
 import Main from '../components/mainProducts'
-import Produtos from '../components/mainProducts'
 import Siganos from '../components/siganos'
 import Footer from '../components/footer'
-
-// imagens
-import brincos2 from "../assets/produtos/brincos/brincos.webp"
-import argolasmile from "../assets/produtos/brincos/argolasmile.webp"
-import colarestrela from "../assets/produtos/colar/colarestrela.webp"
-import oculos from "../assets/produtos/oculos/oculos.webp"
-import oculos2 from "../assets/produtos/oculos/oculos2.webp"
-import pulseira from "../assets/produtos/pulseira/pulseiracoracao.webp"
-
-import image from '../assets/produtos/oculos/oculos2.webp'
 import card from '../assets/section/card.svg'
 import desconto from '../assets/section/desconto.svg'
 import truck from '../assets/section/truck.svg'
 
 export default function ProdutoDescrito() {
+
+    //================produto para descrição=================//
+    //recuperando os valores do produto com Redux
+    const { produto } = useSelector((rootReducer) => rootReducer.productReducer)
+    const valor = produto.valor;
+
+    //divide o valor em 3x
+    let valorParcelado = valor / 3;
+    // Usando toFixed para definir duas casas decimais e toString para converter em string
+    let valorParceladoFormatado = valorParcelado.toFixed(2).toString();
+    let valorFormatado = valor.toFixed(2).toString();
+    // Substituindo o ponto por uma vírgula
+    valorParceladoFormatado = valorParceladoFormatado.replace('.', ',');
+    valorFormatado = valorFormatado.replace('.', ',');
+    //=======================================================//
+
+    //==============filtrar produtos relacionados============//
+    //recuperando os valores dos produtos com Redux
+    const { produtos } = useSelector((rootReducer) => rootReducer.allProducts);
+    // Filtra os produtos com base na categoria
+    const [produtosRelacionados, setProdutosFiltrados] = useState([]);
     useEffect(() => {
-        // A função dentro de useEffect será executada quando o componente for montado ou atualizado
-        window.scrollTo(0, 0);
-    }, []); 
-    const produtosDestaque = [
-        <Produtos foto={brincos2} nome={"Brincos Argola Friz"} valor={29.90} />,
-        <Produtos foto={argolasmile} nome={"Argola Smile"} valor={29.95} />,
-        <Produtos foto={colarestrela} nome={"Colar Estrela"} valor={28.90} />,
-        <Produtos foto={oculos} nome={"Óculos cat"} valor={109.90} />,
-        <Produtos foto={oculos2} nome={"Óculos Pink"} valor={109.90} />,
-        <Produtos foto={pulseira} nome={"Pulseira Coração"} valor={26.90} />]
+        const filtro = produtos.filter(produtos =>
+            produtos.categoria.toLowerCase().includes(produto.categoria.toLowerCase())
+        );
+        // console.log(produto)
+        setProdutosFiltrados(filtro);
+    }, [produto, produtos]);
+    //=======================================================//
+
+    //=============unidades de produto=======================//
+    const [unidades, setUnidades] = useState(0);
+    useEffect(() => {
+        setUnidades(0);
+    }, [produto]);
+    function subtrairUnidade() {
+        if (unidades != 0) {
+            setUnidades(unidades - 1);
+        }
+    }
+    function adicionarUnidade() {
+        setUnidades(unidades + 1);
+    }
+    //=======================================================//
+
     return (
         <>
             <Header />
@@ -46,14 +70,14 @@ export default function ProdutoDescrito() {
                 </div>
                 <div className="content-wrapper-descricao">
                     <div className='image-produto-descricao'>
-                        <img src={image} />
+                        <img src={produto.foto} />
                     </div>
                     <div className='descricao-produto'>
-                        <h1>Óculos Pink</h1>
-                        <h3>R$109,90</h3>
+                        <h1>{produto.nome}</h1>
+                        <h3>R$ {valorFormatado}</h3>
                         <p>
                             <span><img src={card}></img></span>
-                            3x de&nbsp;<strong>R$ 00,00 sem juros</strong>.
+                            3x de&nbsp;<strong>R$ {valorParceladoFormatado} sem juros</strong>.
                         </p>
                         <p>
                             <span><img src={desconto}></img></span>
@@ -64,9 +88,9 @@ export default function ProdutoDescrito() {
                         </p>
                         <div className='buttons-wrapper'>
                             <div className='buttons-quantidade'>
-                                <button>-</button>
-                                <div className='qtd'> 0 </div>
-                                <button>+</button>
+                                <button onClick={subtrairUnidade} >-</button>
+                                <div className='qtd'> {unidades} </div>
+                                <button onClick={adicionarUnidade}>+</button>
                             </div>
 
                             <button className='button-comprar' >
@@ -84,12 +108,12 @@ export default function ProdutoDescrito() {
                         <p className='item-descricao'>Acompanha capinha + flanela + pingente quartzo rosa</p>
                         <div className='campo-medidas'>
                             <p>
-                                Medida:<br/>
-                                Largura da lente 4,8cm<br/>
-                                Altura da lente 4,2cm<br/>
-                                Largura total 14,4cm<br/>
-                                Altura Total 4,8cm<br/>
-                                Ponte 1,4cm<br/>
+                                Medida:<br />
+                                Largura da lente 4,8cm<br />
+                                Altura da lente 4,2cm<br />
+                                Largura total 14,4cm<br />
+                                Altura Total 4,8cm<br />
+                                Ponte 1,4cm<br />
                             </p>
                         </div>
                     </div>
@@ -98,7 +122,7 @@ export default function ProdutoDescrito() {
 
                 <Main
                     titulo="Produtos Relacionados"
-                    produtos={produtosDestaque}
+                    produtos={produtosRelacionados}
                 />
 
             </section>

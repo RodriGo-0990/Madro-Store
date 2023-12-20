@@ -20,13 +20,13 @@
     width: 30px;
 }
 .content-wrapper-descricao{
+    position: relative;
     background-color: #bababa34;
     display: grid;
     grid-template-columns:1fr 1fr ;
     gap: 40px;
-    width: 98%;
-    margin: 1em;
     padding: 2em;
+    margin: 2em;
     height: fit-content;
     
 }
@@ -133,8 +133,14 @@
         grid-template-columns: 1fr;
     }
 }
+@media(width<600px){
+    .content-wrapper-descricao{
+        margin: 0;
+    }
+}
 @media (width < 450px){
     .descricao-produto p{
         font-size: 16px;
     }
+
 }

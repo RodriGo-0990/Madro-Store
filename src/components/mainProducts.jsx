@@ -2,7 +2,7 @@ import "../css/main.css"
 import Product from "./produtos";
 import { useEffect, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react";
-export default function Main(props) {
+export default function MainProdructs(props) {
     /*muda quantidade de itens que aparecem em tela sobre o 
     carrosel de produtos de acordo 
     com o tamanho da tela*/
@@ -39,10 +39,10 @@ export default function Main(props) {
                     {props.produtos.map((produto, index) => (
                         <SwiperSlide key={index}>
                             <Product
-                                foto={produto.props.foto}
-                                nome={produto.props.nome}
-                                valor={produto.props.valor}
-                                categoria={produto.props.categoria}
+                                foto={produto.foto}
+                                nome={produto.nome}
+                                valor={produto.valor}
+                                categoria={produto.categoria}
                             />
                         </SwiperSlide>
                     ))}

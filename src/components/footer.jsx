@@ -12,7 +12,7 @@ import madro from "../assets/header/logo.webp"
 import correios from "../assets/footer/correios.png"
 import google from "../assets/footer/selogoogle.webp";
 
-export default function () {
+export default function Footer () {
     return (
         <footer className="footer">
             <div className="footer-wraper">

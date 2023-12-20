@@ -8,6 +8,10 @@ import PaginaProdutos from './pages/paginaprodutos.jsx'
 import ProdutoDescricao from './pages/produtodescricao.jsx'
 import './index.css'
 
+//***Redux */
+import {Provider} from 'react-redux';
+import store from './Redux/store.js';
+
 //****Router */
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 //********** */
@@ -24,6 +28,7 @@ import 'swiper/css/scrollbar';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
     <Routes>
       <Route path='/Madro-Store' element={<App/>} />
@@ -35,5 +40,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/Madro-Store/produtodescricao' element={<ProdutoDescricao/>}/>
     </Routes>
     </BrowserRouter>
-  </React.StrictMode>,
+    </Provider>
+  </React.StrictMode>
 )

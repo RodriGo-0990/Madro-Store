@@ -1,7 +1,20 @@
 import "../css/produto.css";
 import eye from '../assets/produtos/eye.svg'
 import { Link } from "react-router-dom";
-export default function products({ foto, nome, valor }) {
+import { useDispatch } from "react-redux";
+import actionTypes from "../Redux/product/product-actiontypes";
+
+export default function Products( {foto, nome, valor, categoria} ) {
+    
+    const dispatch = useDispatch();
+
+    const changeProductDescribe = () =>{
+        window.scrollTo(0, 0);
+        dispatch({
+            type:actionTypes.REQUEST,
+            payload:{foto:foto, nome:nome,valor:valor, categoria:categoria}})
+    }
+
     let valorParcelado = valor / 3;
     // Usando toFixed para definir duas casas decimais e toString para converter em string
     let valorFormatado = valorParcelado.toFixed(2).toString();
@@ -19,7 +32,7 @@ export default function products({ foto, nome, valor }) {
                 <div className="div-button-comprar">
                     <button className="button-comprar">COMPRAR</button>
                     <Link to="/Madro-Store/produtodescricao">
-                        <button className="button-ver"><img src={eye} /></button>
+                        <button onClick={changeProductDescribe} className="button-ver"><img src={eye} /></button>
                     </Link>
                 </div>
             </div>
