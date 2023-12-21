@@ -1,11 +1,16 @@
 import '../../css/formulario.css'
+import { useSelector } from "react-redux";
+import Overlay from '../../components/overlay'
 import Header from "../../components/header"
 import Footer from '../../components/footer'
 import Siganos from '../../components/siganos'
 import Void from '../../components/void'
 export default function Cadastro() {
+     //===pega o estado do carrinho===//
+     const { activeState } = useSelector(({ cartReducer }) => cartReducer);
     return (
-        <>
+        <>  
+            <Overlay isOpen={activeState} />
             <Header />
             <Void/>
             <div className="wrapper-contact">

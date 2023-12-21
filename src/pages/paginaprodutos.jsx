@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Overlay from '../components/overlay';
 import Main from '../components/mainProducts'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -14,6 +15,9 @@ import Siganos from '../components/siganos';
 export default function PaginaProdutos() {
     //recuperando os valores dos produtos com Redux
     const { produtos } = useSelector((rootReducer) => rootReducer.allProducts)
+
+    //===pega o estado do carrinho===//
+    const { activeState } = useSelector(({ cartReducer }) => cartReducer);
 
     //capturar a categoria pela URL 
     const { categorie } = useParams();
@@ -27,19 +31,21 @@ export default function PaginaProdutos() {
     // "pesquisa" os produtos por nome e retorna a lista
     const [produtosFiltrados, setProdutosFiltrados] = useState([]);
     useEffect(() => {
-        if(categorie != null){
-        // Filtra os produtos com base na categoria
-        const Filtro = produtos.filter(produto =>
-            produto.categoria.toLowerCase().includes(categorie.toLowerCase())
-        );
-        setProdutosFiltrados(Filtro);
-        }else{
+        if (categorie != null) {
+            // Filtra os produtos com base na categoria
+            const Filtro = produtos.filter(produto =>
+                produto.categoria.toLowerCase().includes(categorie.toLowerCase())
+            );
+            setProdutosFiltrados(Filtro);
+        } else {
             setProdutosFiltrados(produtos);
         }
     }, [categorie]);
 
     return (
         <>
+
+            <Overlay isOpen={activeState} />
             <Header />
             <Void />
             <section className='main-content'>
@@ -50,12 +56,12 @@ export default function PaginaProdutos() {
                     <div className='content-wide-screen'>
                         {produtosFiltrados.map((produto, index) => (
                             <React.Fragment key={index}>
-                                <Produtos 
-                                    foto = {produto.foto}
-                                    nome = {produto.nome} 
-                                    valor= {produto.valor}
-                                    categoria= {produto.categoria}
-                                 />
+                                <Produtos
+                                    foto={produto.foto}
+                                    nome={produto.nome}
+                                    valor={produto.valor}
+                                    categoria={produto.categoria}
+                                />
                             </React.Fragment>
                         ))}
                     </div>

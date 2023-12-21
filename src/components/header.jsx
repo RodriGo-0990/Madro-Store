@@ -17,24 +17,21 @@ export default function Header() {
     //  do menu do carrinho de compras===//
     const dispatch = useDispatch();
     const changeActiveState = () => {
+
         dispatch({
             type: actionTypes.active,
         })
     }
-
-
     //menu mobile lateral
     const [classname, setActive] = useState(false)
     const setState = () => {
         setActive(!classname);
     }
-
     //sub menu de produtos do menu mobile
     const submenu = document.getElementById("products");
     function toggleSubMenu() {
         submenu.classList.toggle("open-submenu");
     }
-
     //input search mobile
     function setVisibility() {
         if (document.getElementById("search").style.display == "none") {
@@ -47,7 +44,7 @@ export default function Header() {
     return (
         <>
             <header className="header">
-                <div className="center" >
+                <div  id="center" className="center" >
                     {/* logomarca */}
                     <Link to="/Madro-Store">
 
@@ -138,9 +135,9 @@ export default function Header() {
                         </div>
                         <div className="icons-log-cart" >
                             <div className="label-log-cart">
-                                
+
                                 <img onClick={changeActiveState} className="img-log-cart" id="cart" src={cart} alt="cart"></img>
-                                
+
                             </div>
                         </div>
                     </div>

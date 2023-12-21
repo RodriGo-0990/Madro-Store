@@ -1,6 +1,7 @@
 import '../css/produtodescricao.css'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import Overlay from '../components/overlay';
 import Header from '../components/header'
 import Void from '../components/void'
 import Main from '../components/mainProducts'
@@ -11,6 +12,9 @@ import desconto from '../assets/section/desconto.svg'
 import truck from '../assets/section/truck.svg'
 
 export default function ProdutoDescrito() {
+    //===pega o estado do carrinho===//
+    const { activeState } = useSelector(({ cartReducer }) => cartReducer);
+
 
     //================produto para descrição=================//
     //recuperando os valores do produto com Redux
@@ -58,6 +62,8 @@ export default function ProdutoDescrito() {
 
     return (
         <>
+
+            <Overlay isOpen={activeState} />
             <Header />
             <section >
                 <div className='marquee'>
