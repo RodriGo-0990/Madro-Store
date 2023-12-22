@@ -154,11 +154,26 @@ a:hover {
 }
 
 .label-log-cart {
+    position: relative;
     cursor: pointer;
 }
 
 #log:hover>.sub-menu {
     display: block;
+}
+.quantidade-itens-cart{
+    position: absolute;
+    text-align: center;
+    top:0;
+    right: -7px;
+    background-color: #f5f2f2e6;
+    border-radius: 10px;
+    width: 17px;
+    height: 18px;
+    color: #d891a9;
+    font-size: 14px;
+    font-weight:900;
+    
 }
 
 /* ********* */

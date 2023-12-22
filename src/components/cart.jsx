@@ -1,26 +1,31 @@
 import '../css/cart.css'
 import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
 import bag from '../assets/header/bag.png'
 import truck from '../assets/section/truck.svg'
 import menu from '../assets/header/close.svg'
 import ItemCart from '../components/itemcart.jsx'
 import actionTypes from '../Redux/cart/actiontype'
-// Teste
-import image from '../assets/produtos/brincos/brincos1.jpg'
-import image2 from '../assets/produtos/brincos/brincos.jpg'
+
 
 export default function cart() {
     //===pega o estado do carrinho===//
-    const { activeState } = useSelector(({ cartReducer }) => cartReducer);
+    const { produtos, activeState } = useSelector(({ cartReducer }) => cartReducer);
     // ===altera o estado de ativo/desativo 
     //  do menu do carrinho de compras===//
     const dispatch = useDispatch();
     const changeActiveState = () => {
-
         dispatch({
             type: actionTypes.active,
         })
     }
+    const [subtotal, setSubtotal] = useState(0);
+    useEffect(() => {
+        // Calcula subtotal quando a lista de produtos se altera
+        const newSubtotal = (produtos.length >0 ? produtos.reduce((acc, item) => acc + item.valorsomado, 0) :0);  
+        setSubtotal(newSubtotal);
+    }, [produtos]);
+
     return (
         <section>
             <div id="cart-screen" className={activeState ? "show-cart" : "wrapper-cart-screen"}>
@@ -34,34 +39,21 @@ export default function cart() {
                     </div>
                 </div>
                 <div className='cart-wrapper-products'>
-                    <ItemCart image={image}
-                        descricao="Bincos Dourados"
-                        preco="22,90" />
-                    <ItemCart image={image2}
-                        descricao="Bincos perolas"
-                        preco="22,90" />
-                         <ItemCart image={image2}
-                        descricao="Bincos perolas"
-                        preco="22,90" />
-                         <ItemCart image={image2}
-                        descricao="Bincos perolas"
-                        preco="22,90" />
-                         <ItemCart image={image2}
-                        descricao="Bincos perolas"
-                        preco="22,90" />
-                         <ItemCart image={image2}
-                        descricao="Bincos perolas"
-                        preco="22,90" /> <ItemCart image={image2}
-                        descricao="Bincos perolas"
-                        preco="22,90" />
-                         <ItemCart image={image2}
-                        descricao="Bincos perolas"
-                        preco="22,90" />
+                    {produtos.map((product, index) => (
+                        <ItemCart
+                            key={product.id}
+                            image={product.foto}
+                            descricao={product.nome}
+                            valor={product.valor}
+                            unidades={product.unidades}
+                            id={product.id}
+                        />
+                    ))}
                 </div>
                 <div className='subtotal-Wrapper-div'>
                     <div className='subtotal-content' >
                         <h5>Subtotal(sem frete):</h5>
-                        <h5>R$00,00</h5>
+                        <h5>R${subtotal.toFixed(2).toString()}</h5>
                     </div>
                 </div>
                 <div className='fretecalc-wrapper-div'>

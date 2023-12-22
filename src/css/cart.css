@@ -95,7 +95,7 @@
 }
 
 .fretecalc-content a {
-    font-size: x-small;
+    font-size: small;
     color: #daabbdb2;
 }
 .fretecalc-content a:hover{
@@ -153,6 +153,9 @@
     align-items: center;
     justify-content: center;
     padding: 1em;
+}
+.button-div-payment button{
+    cursor: not-allowed;
 }
 ::-webkit-scrollbar {
     width: 10px;

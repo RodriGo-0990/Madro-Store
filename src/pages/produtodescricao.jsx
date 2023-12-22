@@ -1,6 +1,6 @@
 import '../css/produtodescricao.css'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector ,useDispatch } from 'react-redux'
 import Overlay from '../components/overlay';
 import Header from '../components/header'
 import Void from '../components/void'
@@ -10,6 +10,7 @@ import Footer from '../components/footer'
 import card from '../assets/section/card.svg'
 import desconto from '../assets/section/desconto.svg'
 import truck from '../assets/section/truck.svg'
+import cartActionTypes from "../Redux/cart/actiontype";
 
 export default function ProdutoDescrito() {
     //===pega o estado do carrinho===//
@@ -46,12 +47,12 @@ export default function ProdutoDescrito() {
     //=======================================================//
 
     //=============unidades de produto=======================//
-    const [unidades, setUnidades] = useState(0);
+    const [unidades, setUnidades] = useState(1);
     useEffect(() => {
-        setUnidades(0);
+        setUnidades(1);
     }, [produto]);
     function subtrairUnidade() {
-        if (unidades != 0) {
+        if (unidades != 1) {
             setUnidades(unidades - 1);
         }
     }
@@ -59,6 +60,17 @@ export default function ProdutoDescrito() {
         setUnidades(unidades + 1);
     }
     //=======================================================//
+    
+    //================mandar para o carrinho=================//
+    const foto = produto.foto;
+    const nome = produto.nome;
+    const dispatch = useDispatch();
+    const sendToCart = () =>{
+        dispatch({
+            type:cartActionTypes.POST,
+            payload:{foto:foto,nome:nome,valor:valor,unidades:unidades}
+        })
+    }
 
     return (
         <>
@@ -99,7 +111,7 @@ export default function ProdutoDescrito() {
                                 <button onClick={adicionarUnidade}>+</button>
                             </div>
 
-                            <button className='button-comprar' >
+                            <button onClick={sendToCart} className='button-comprar' >
                                 Comprar
                             </button>
                         </div>

@@ -1,24 +1,68 @@
 import '../css/itemcart.css'
+import { useState, useEffect } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import trash from '../assets/header/trash.svg'
-export default function ItemCart(props) {
+import actionTypes from '../Redux/cart/actiontype'
+
+
+export default function ItemCart({ image, descricao, valor, unidades, id}) {
+    const { produtos } = useSelector(({ cartReducer }) => cartReducer);
+    
+    const [unidades_, setUnidades] = useState(unidades)
+    const [valorsomado, setvalor] = useState(0)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        setvalor(unidades_ * valor)
+        dispatchUpdateAction();
+    }, [valorsomado,unidades_, dispatch]);
+
+    const adiciona = () => {
+        setUnidades(unidades_ +1);
+    };
+
+    const subtrai = () => {
+        if (unidades_ > 1) {
+            setUnidades(unidades_ -1);
+        }
+    };
+
+    const excluirItem = () => {
+        dispatch({
+            type: actionTypes.DELETE,
+            payload:{id}
+        })
+    };
+    const dispatchUpdateAction = () => {
+        dispatch({
+            type: actionTypes.UPDATE,
+            payload: { id, unidades_,valorsomado:valorsomado },
+        });
+    };
+    useEffect(() => {
+        setvalor(unidades_ * valor)
+        dispatchUpdateAction();
+    }, [valorsomado,unidades_, dispatch]);
+
+
+
     return (
         <section className="main-div-itemcart">
             <div className="wrapper-content-itemcart" >
                 <div className="image-produto-itemcart">
-                    <img src={props.image} />
+                    <img src={image} />
                 </div>
                 <div className="describe-produto-itemcart">
-                    <h1>{props.descricao}</h1>
+                    <h1>{descricao}</h1>
                     <div className='buttons-quantidade'>
-                        <button>-</button>
-                        <div className='qtd'> 0 </div>
-                        <button>+</button>
+                        <button onClick={subtrai}  >-</button>
+                        <div className='qtd'> {unidades_} </div>
+                        <button onClick={adiciona} >+</button>
                     </div>
                 </div>
                 <div className="preco-produto-itemcart">
-                    <h1>R$ {props.preco}</h1>
+                    <h1>R$ {valorsomado.toFixed(2).toString()}</h1>
                 </div>
-                <button className="button-exclude-itemcart">
+                <button  onClick={excluirItem} className="button-exclude-itemcart">
                     <img src={trash} />
                 </button>
             </div>

@@ -1,6 +1,6 @@
 import "../css/header.css";
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 import user from "../assets/header/user.svg";
 import cart from "../assets/header/bag.png";
 import logoName from "../assets/header/logo.webp";
@@ -13,11 +13,13 @@ import actionTypes from '../Redux/cart/actiontype'
 
 
 export default function Header() {
+    // altera o icone de carrinho de compra, sobre a quantidade de produtos
+    const {produtos} = useSelector(({ cartReducer }) => cartReducer);
+    
     // ===altera o estado de ativo/desativo 
     //  do menu do carrinho de compras===//
     const dispatch = useDispatch();
     const changeActiveState = () => {
-
         dispatch({
             type: actionTypes.active,
         })
@@ -137,7 +139,7 @@ export default function Header() {
                             <div className="label-log-cart">
 
                                 <img onClick={changeActiveState} className="img-log-cart" id="cart" src={cart} alt="cart"></img>
-
+                                <div className="quantidade-itens-cart">{produtos.length}</div>
                             </div>
                         </div>
                     </div>
