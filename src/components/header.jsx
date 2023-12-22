@@ -8,6 +8,7 @@ import menu from "../assets/header/icons8-menu-26.svg";
 import Menucart from "../components/cart";
 import search from "../assets/header/search.svg";
 import searchinput from "../assets/header/icons8-search.svg"
+import Msgcart from "../components/mensagemcart"
 import { Link } from 'react-router-dom'
 import actionTypes from '../Redux/cart/actiontype'
 
@@ -232,6 +233,7 @@ export default function Header() {
                 {/* menu lateral */}
                 <Menucart />
             </header >
+            <Msgcart/>
         </>
     )
 }

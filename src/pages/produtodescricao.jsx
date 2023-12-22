@@ -1,6 +1,6 @@
 import '../css/produtodescricao.css'
 import { useEffect, useState } from 'react'
-import { useSelector ,useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Overlay from '../components/overlay';
 import Header from '../components/header'
 import Void from '../components/void'
@@ -15,6 +15,8 @@ import cartActionTypes from "../Redux/cart/actiontype";
 export default function ProdutoDescrito() {
     //===pega o estado do carrinho===//
     const { activeState } = useSelector(({ cartReducer }) => cartReducer);
+    //estado do botão loading
+    const [loading, setloading] = useState(false);
 
 
     //================produto para descrição=================//
@@ -60,16 +62,24 @@ export default function ProdutoDescrito() {
         setUnidades(unidades + 1);
     }
     //=======================================================//
-    
+
     //================mandar para o carrinho=================//
     const foto = produto.foto;
     const nome = produto.nome;
     const dispatch = useDispatch();
-    const sendToCart = () =>{
+    const sendToCart = () => {
+        setisloading();
         dispatch({
-            type:cartActionTypes.POST,
-            payload:{foto:foto,nome:nome,valor:valor,unidades:unidades}
+            type: cartActionTypes.POST,
+            payload: { foto: foto, nome: nome, valor: valor, unidades: unidades }
         })
+    }
+    // loading botão compra
+    function setisloading() {
+        setloading(!loading)
+        setTimeout(() => {
+            setloading(loading)
+        }, 2000);
     }
 
     return (
@@ -111,8 +121,11 @@ export default function ProdutoDescrito() {
                                 <button onClick={adicionarUnidade}>+</button>
                             </div>
 
-                            <button onClick={sendToCart} className='button-comprar' >
-                                Comprar
+                            <button id="botaoCompra"
+                                onClick={sendToCart}
+                                className={!loading ? "button-comprar" : "button-loading"}
+                                disabled={loading} >
+                                {!loading ? "COMPRAR" : ""}
                             </button>
                         </div>
                     </div>

@@ -67,7 +67,19 @@
     cursor: pointer;
     border-radius: 50px;
     box-shadow: 1px 1px 1px black;
-    
+}
+.button-loading{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border:6px solid #f1c1d1;
+    border-top-color: transparent ;
+    animation: is-rotating 1s infinite ;      
+}
+@keyframes is-rotating{
+    to{
+        transform: rotate(1turn);
+    }
 }
 .button-ver{
     width: 34px;

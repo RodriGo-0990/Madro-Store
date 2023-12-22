@@ -77,7 +77,7 @@ export default function cart() {
                         </div>
                     </div>
                     <div className='button-div-payment'>
-                        <button style={{ width: "80%" }} className='button-comprar'>
+                        <button style={{ width: "80%" }} disabled={true} className='button-comprar'>
                             IR PARA PAGAMENTO
                         </button>
                     </div>
