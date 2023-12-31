@@ -73,7 +73,7 @@ export default function cart() {
                         <h1>Total: </h1>
                         <div style={{ textAlign: 'end' }}>
                             <h1>R$00,00</h1>
-                            <p>ou até <strong>R$00,00</strong> sem juros.</p>
+                            <p>ou até 3x de <strong>R$00,00</strong> sem juros.</p>
                         </div>
                     </div>
                     <div className='button-div-payment'>

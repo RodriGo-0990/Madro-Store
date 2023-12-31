@@ -15,14 +15,17 @@ export default function Products( {foto, nome, valor, categoria} ) {
         window.scrollTo(0, 0);
         dispatch({
             type:actionTypes.REQUEST,
-            payload:{foto:foto, nome:nome,valor:valor, categoria:categoria}})
+            payload:{foto:foto, nome:nome,valor:valor,categoria:categoria}})
     }
     const sendToCart = () =>{
-        setisloading();
+        setLoadingButton();
         dispatch({
             type:cartActionTypes.POST,
             payload:{foto:foto,nome:nome,valor:valor,unidades:1}
         })
+        setTimeout(() => {
+            dispatch({ type: cartActionTypes.activeMSG});
+        }, 3000);
     }
     let valorParcelado = valor / 3;
     // Usando toFixed para definir duas casas decimais e toString para converter em string
@@ -30,7 +33,7 @@ export default function Products( {foto, nome, valor, categoria} ) {
     // Substituindo o ponto por uma vírgula
     valorFormatado = valorFormatado.replace('.', ',');
     // loading botão compra
-    function setisloading() {
+    function setLoadingButton() {
         setloading(!loading)
         setTimeout(() => {
             setloading(loading)

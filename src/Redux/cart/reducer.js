@@ -1,18 +1,18 @@
 import actionTypes from "./actiontype";
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
     produtos: [],
-    activeState : false
-
+    activeState: false,
+    msgActive: false
 };
 
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.POST:
-            const novoProduto = { ...action.payload, id: uuidv4(), valorsomado:0 };
-            return { ...state, produtos: [...state.produtos, novoProduto] };
-        case actionTypes.UPDATE:     
+            const novoProduto = { ...action.payload, id: uuidv4(), valorsomado: 0 };
+            return { ...state, msgActive: state.msgActive = true, produtos: [...state.produtos, novoProduto] };
+        case actionTypes.UPDATE:
             return {
                 ...state,
                 produtos: state.produtos.map(item =>
@@ -22,7 +22,9 @@ const cartReducer = (state = initialState, action) => {
                 )
             };
         case actionTypes.active:
-            return { ...state, activeState: !state.activeState };
+            return { ...state, activeState: !state.activeState};
+        case actionTypes.activeMSG:
+            return { ...state, msgActive: state.msgActive = false };
         case actionTypes.DELETE:
             return {
                 ...state,

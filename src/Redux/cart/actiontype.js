@@ -3,6 +3,7 @@ const actionTypes = {
     POST : "products/post",
     DELETE : "products/delete",
     UPDATE : "products/update",
-    active: "menu/active"
+    active: "menu/active",
+    activeMSG: "menu/activeMSG"
 } 
 export default actionTypes;

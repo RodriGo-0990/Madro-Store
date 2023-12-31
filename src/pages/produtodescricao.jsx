@@ -80,6 +80,9 @@ export default function ProdutoDescrito() {
         setTimeout(() => {
             setloading(loading)
         }, 2000);
+        setTimeout(() => {
+            dispatch({ type: cartActionTypes.activeMSG});
+        }, 3000);
     }
 
     return (

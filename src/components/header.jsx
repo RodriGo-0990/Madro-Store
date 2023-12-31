@@ -1,6 +1,6 @@
 import "../css/header.css";
-import { useState } from 'react'
-import { useDispatch,useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import user from "../assets/header/user.svg";
 import cart from "../assets/header/bag.png";
 import logoName from "../assets/header/logo.webp";
@@ -15,8 +15,8 @@ import actionTypes from '../Redux/cart/actiontype'
 
 export default function Header() {
     // altera o icone de carrinho de compra, sobre a quantidade de produtos
-    const {produtos} = useSelector(({ cartReducer }) => cartReducer);
-    
+    const { msgActive, produtos } = useSelector(({ cartReducer }) => cartReducer);
+
     // ===altera o estado de ativo/desativo 
     //  do menu do carrinho de compras===//
     const dispatch = useDispatch();
@@ -43,11 +43,15 @@ export default function Header() {
             document.getElementById("search").style.display = "none";
         }
     };
-
+    //msg do carrinho de compras
+    const [msgAtiva, setMsgActive] = useState(msgActive)
+    useEffect(() => {
+        setMsgActive(msgActive);
+    })
     return (
         <>
             <header className="header">
-                <div  id="center" className="center" >
+                <div id="center" className="center" >
                     {/* logomarca */}
                     <Link to="/Madro-Store">
 
@@ -233,7 +237,7 @@ export default function Header() {
                 {/* menu lateral */}
                 <Menucart />
             </header >
-            <Msgcart/>
+            <Msgcart ativo={msgAtiva} />
         </>
     )
 }
