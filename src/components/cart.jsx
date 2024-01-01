@@ -6,6 +6,7 @@ import truck from '../assets/section/truck.svg'
 import menu from '../assets/header/close.svg'
 import ItemCart from '../components/itemcart.jsx'
 import actionTypes from '../Redux/cart/actiontype'
+import calculateFrete from '../api/api-correios'
 
 
 export default function cart() {
@@ -63,7 +64,7 @@ export default function cart() {
                         </div>
                         <div className='input-fretecalc-div'>
                             <input className="input-fretecalc" type="text" placeholder='Digite seu cep' />
-                            <button className='button-fretecalc' type='submit'>CALCULAR</button>
+                            <button className='button-fretecalc' onClick={calculateFrete}>CALCULAR</button>
                         </div>
                         <a href='https://buscacepinter.correios.com.br/app/endereco/index.php' target='blank'>Não sei meu cep</a>
                     </div>
