@@ -33,7 +33,6 @@
     overflow-x: hidden;
     gap: 10px;
 }
-
 .header-cart {
     width: 100%;
     display: flex;
@@ -60,6 +59,10 @@
     padding: .8em;
     background-color: #f6f6f6;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .subtotal-Wrapper-div {
@@ -129,6 +132,10 @@
     border-bottom-right-radius: 10px;
     letter-spacing: 2px;
     font-weight: bold;
+}
+.frete-options-wrapper{
+    width: 90%;
+    color: #daabbd;
 }
 
 .payment-wrapper {

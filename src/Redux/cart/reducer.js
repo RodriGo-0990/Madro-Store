@@ -4,7 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 const initialState = {
     produtos: [],
     activeState: false,
-    msgActive: false
+    msgActive: false,
+    frete: [],
+    valorFrete:0
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -30,6 +32,16 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 produtos: state.produtos.filter(item => item.id !== action.payload.id)
             };
+        case actionTypes.FRETE:
+            return{
+                ...state,
+                frete: action.payload
+            };  
+        case actionTypes.VALORFRETE:
+            return{
+                ...state,
+                valorFrete: action.payload
+            }      
         default:
             return state;
     }
