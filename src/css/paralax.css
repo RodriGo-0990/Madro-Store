@@ -1,0 +1,28 @@
+
+.paralax-wraper{
+    position: relative;
+    margin: 0 auto;
+    width: 98%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.paralax-wraper > *{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.inner-paralaxe{
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    bottom: 100px;
+    word-break: break-word;
+    
+}
+.inner-paralaxe h1{
+    text-align: center;
+    font-size: 200px;
+    color: rgb(255, 255, 255);
+}
