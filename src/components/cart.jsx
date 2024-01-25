@@ -44,8 +44,6 @@ export default function cart() {
     function formString(string) {
         return string.replace('.', ',');
     }
-
-    console.log(valorFrete)
     return (
         <section>
             <div id="cart-screen" className={activeState ? "show-cart" : "wrapper-cart-screen"}>
@@ -70,7 +68,7 @@ export default function cart() {
                         />
                     ))}
                     <div className='msg-produtos' style={produtos.length == 0 ?{display:"block"}:{display:"none"}}>
-                        <p style={{color:"#daabbd" , alignItems:"center", display:"flex"}}><span><img style={{width:"20px"}} src={warning} alt='icon'/></span>Seu carrinho está vazio</p>
+                        <p style={activeState?{color:"#daabbd" , alignItems:"center", display:"flex"}:{display:"none"}}><span><img style={{width:"20px"}} src={warning} alt='icon'/></span>Seu carrinho está vazio</p>
                     </div>
                 </div>
                 <div style={produtos.length==0?{display:"none"}:{display:"block"}} className='subtotal-Wrapper-div'>
