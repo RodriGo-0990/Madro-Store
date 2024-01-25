@@ -41,5 +41,6 @@ export default function calculateFrete(dispatch,cep) {
         })
 
     })
+    
 }
 
