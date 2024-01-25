@@ -39,11 +39,7 @@ export default function calculateFrete(dispatch,cep) {
             type: cartActionTypes.FRETE,
             payload: {data}
         })
-        console.log(data);
-    
+
     })
-    .catch((error) => {
-      console.log("erro na chamada da api", error);
-    });
 }
 
