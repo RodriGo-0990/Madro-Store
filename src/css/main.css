@@ -36,3 +36,8 @@
     
     padding:2em;
 }
+.errormsg{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

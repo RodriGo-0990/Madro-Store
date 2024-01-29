@@ -1,5 +1,6 @@
 import "./index.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {useEffect} from "react"
 import Overlay from './components/overlay.jsx'
 import Header from './components/header';
 import Section from "./components/section";
@@ -10,12 +11,18 @@ import Newsletter from './components/newsletter';
 import Siganos from './components/siganos';
 import Footer from './components/footer';
 import fundo from './assets/madro/voce_pode.jpg';
+import loadProducts from "./api/api-bling";
 
 function App() {
   //recuperando os valores dos produtos com Redux
   const { produtos } = useSelector((rootReducer) => rootReducer.allProducts)
-  const destaques = produtos.slice(0, 6);
-  const lancamentos = produtos.slice(6, 12);
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    loadProducts(dispatch);
+  },[] )
+  console.log(produtos);
+  const destaques = produtos;
+  const lancamentos = produtos;
   //===pega o estado do carrinho===//
   const { activeState } = useSelector(({ cartReducer }) => cartReducer);
 

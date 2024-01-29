@@ -36,7 +36,7 @@ export default function MainProdructs(props) {
                     centeredSlides={true}
                     initialSlide={3}
                 >
-                    {props.produtos.map((produto, index) => (
+                    {props.produtos.length != 0 ? props.produtos.map((produto, index) => (
                         <SwiperSlide key={index}>
                             <Product
                                 foto={produto.foto}
@@ -45,8 +45,8 @@ export default function MainProdructs(props) {
                                 categoria={produto.categoria}
                             />
                         </SwiperSlide>
-                    ))}
-
+                    ))
+                    : <p className="errormsg">Falha ao carregar produtos!</p>}
                 </Swiper>
             </section>
             <div className="div-slider-button">

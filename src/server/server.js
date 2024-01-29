@@ -10,6 +10,24 @@ app.use(cors({
     optionsSuccessStatus: 204,
     allowedHeaders: 'Content-Type,Authorization',
 }));
+app.get("/api/bling", async (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true');
+
+    const apikey = "f2627d4ecd999b2ee1e339147d56760fd7efb06f107b4332733f96ba183fe98dc4b6ae34";
+    const outputType = "json";
+    const url = `https://bling.com.br/Api/v2/produtos/${outputType}?apikey=${apikey}&imagem=S`;
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            res.json(data);
+        } catch (error) {
+            res.status(500).json({ error: 'Erro ao chamar a API ' });
+        }
+
+})
 app.post('/api/frete', async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
@@ -25,7 +43,7 @@ app.post('/api/frete', async (req, res) => {
         },
         body: JSON.stringify(req.body),
     };
-    
+
     try {
         const response = await fetch('https://www.melhorenvio.com.br/api/v2/me/shipment/calculate', options);
         const data = await response.json();
@@ -40,4 +58,3 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Servidor do backend rodando na porta ${PORT}`);
 });
-    
