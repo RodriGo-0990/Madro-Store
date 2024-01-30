@@ -61,6 +61,8 @@ export default function PaginaProdutos() {
                                     nome={produto.nome}
                                     valor={produto.valor}
                                     categoria={produto.categoria}
+                                    descricao={produto.descricao}
+                                    descricaoComplementar={produto.descricaoComplementar}
                                 />
                             </React.Fragment>
                         ))}
