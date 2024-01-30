@@ -1,13 +1,15 @@
 import "../css/itemfrete.css"
-import {useSelector,useDispatch } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import actionTypes from '../Redux/cart/actiontype'
 import image from "../assets/section/truck.svg"
 
-export default function itemFrete({prazo, valor, nome}) {
-    const {valorFrete} = useSelector(({ cartReducer }) => cartReducer);
+export default function itemFrete({ prazo, valor, nome }) {
+    const { valorFrete } = useSelector(({ cartReducer }) => cartReducer);
     const dispatch = useDispatch()
+    const [checked, setChecked] = useState(false);
     const setFrete = () => {
-        
+        setChecked(true)
         if (valorFrete !== valor) {
             dispatch({
                 type: actionTypes.VALORFRETE,
@@ -15,11 +17,19 @@ export default function itemFrete({prazo, valor, nome}) {
             });
         }
     }
-    
+    useEffect(() => {
+        if (checked) {
+            dispatch({
+                type: actionTypes.VALORFRETE,
+                payload: valor
+            })
+        }
+    }, [valor])
+
     return (
         <div className="itemfrete-wrapper">
             <div className="option-button-frete-wrapper">
-                <input type="radio" name="option" onClick={setFrete}/>
+                <input id="btn" type="radio" name="option" onClick={setFrete} />
             </div>
             <div className="option-info-frete-wrapper">
                 <div className="option-label-frete">

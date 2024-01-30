@@ -32,15 +32,20 @@ export default function calculateFrete(dispatch,cep) {
 
   const backendEndpoint = 'https://expressjs-madro.up.railway.app/api/frete';
 
-  fetch(backendEndpoint, options)
-    .then((response) => response.json())
-    .then((data) => {
-          dispatch({
-            type: cartActionTypes.FRETE,
-            payload: {data}
-        })
-
-    })
+  return new Promise((resolve, reject) => {
+    fetch(backendEndpoint, options)
+      .then((response) => response.json())
+      .then((data) => {
+        resolve(data); 
+        dispatch({
+          type: cartActionTypes.FRETE,
+          payload: { data }
+        });
+      })
+      // .catch((err) => {
+      //   reject(err); 
+      // });
+  });
     
 }
 
