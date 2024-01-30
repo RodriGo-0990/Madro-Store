@@ -6,7 +6,7 @@ import actionTypes from "../Redux/product/product-actiontypes";
 import cartActionTypes from "../Redux/cart/actiontype";
 import { useState } from "react";
 
-export default function Products( {foto, nome, valor, categoria} ) {
+export default function Products( {foto, nome, valor, categoria, descricao, descricaoComplementar} ) {
     const[loading ,setloading] = useState(false);
     const dispatch = useDispatch();
     //mandar os dados do produto para 
@@ -15,7 +15,14 @@ export default function Products( {foto, nome, valor, categoria} ) {
         window.scrollTo(0, 0);
         dispatch({
             type:actionTypes.REQUEST,
-            payload:{foto:foto, nome:nome,valor:valor,categoria:categoria}})
+            payload:{
+                foto:foto, 
+                nome:nome, 
+                valor:valor, 
+                categoria:categoria, 
+                descricao:descricao, 
+                descricaoComplementar:descricaoComplementar
+            }})
     }
     const sendToCart = () =>{
         setLoadingButton();

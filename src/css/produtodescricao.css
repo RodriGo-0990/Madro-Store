@@ -109,11 +109,12 @@
     font-size: 18px;
 }
 .campo-medidas{
-    width: 90%;
+    width: 100%;
     background-color: white;
     height: fit-content;
     border-radius: 10px;
     padding: .4em;
+    color: gray;
 }
 .item-descricao{
     width: 90%;

@@ -43,7 +43,6 @@ export default function ProdutoDescrito() {
         const filtro = produtos.filter(produtos =>
             produtos.categoria.toLowerCase().includes(produto.categoria.toLowerCase())
         );
-        // console.log(produto)
         setProdutosFiltrados(filtro);
     }, [produto, produtos]);
     //=======================================================//
@@ -81,7 +80,7 @@ export default function ProdutoDescrito() {
             setloading(loading)
         }, 2000);
         setTimeout(() => {
-            dispatch({ type: cartActionTypes.activeMSG});
+            dispatch({ type: cartActionTypes.activeMSG });
         }, 3000);
     }
 
@@ -133,22 +132,13 @@ export default function ProdutoDescrito() {
                         </div>
                     </div>
                 </div>
-                {/* descricao detalhada do produto ainda é fixa para todos */}
+
                 <section>
                     <div className='descricao-detalhada'>
-                        <p className='item-descricao'>Óculos de sol com proteção UV400</p>
-                        <p className='item-descricao'>Óculos rosa fosco</p>
-                        <p className='item-descricao'>Tamanho único</p>
-                        <p className='item-descricao'>Acompanha capinha + flanela + pingente quartzo rosa</p>
                         <div className='campo-medidas'>
-                            <p>
-                                Medida:<br />
-                                Largura da lente 4,8cm<br />
-                                Altura da lente 4,2cm<br />
-                                Largura total 14,4cm<br />
-                                Altura Total 4,8cm<br />
-                                Ponte 1,4cm<br />
-                            </p>
+                            <p dangerouslySetInnerHTML={{ __html: produto.descricao }} />
+                            <br />
+                            <p dangerouslySetInnerHTML={{ __html: produto.descricaoComplementar }} />
                         </div>
                     </div>
                 </section>

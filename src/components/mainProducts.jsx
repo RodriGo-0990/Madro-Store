@@ -43,6 +43,8 @@ export default function MainProdructs(props) {
                                 nome={produto.nome}
                                 valor={produto.valor}
                                 categoria={produto.categoria}
+                                descricao={produto.descricao}
+                                descricaoComplementar={produto.descricaoComplementar}
                             />
                         </SwiperSlide>
                     ))

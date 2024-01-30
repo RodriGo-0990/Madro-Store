@@ -11,6 +11,8 @@ const allProductReducer = (state = initialState, action) => {
             nome: item.produto.descricao || "",
             valor: parseFloat(item.produto.preco) || "",
             categoria: item.produto.categoria.descricao || "",
+            descricao: item.produto.descricaoCurta || "",
+            descricaoComplementar: item.produto.descricaoComplementar || ""
         }));
 
         return { ...state, produtos: prods };

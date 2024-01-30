@@ -20,7 +20,6 @@ function App() {
   useEffect(()=>{
     loadProducts(dispatch);
   },[] )
-  console.log(produtos);
   const destaques = produtos;
   const lancamentos = produtos;
   //===pega o estado do carrinho===//
