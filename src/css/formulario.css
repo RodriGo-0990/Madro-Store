@@ -1,4 +1,4 @@
-.wrapper-contact{
+.wrapper-contact {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,20 +9,23 @@
     color: #daabba;
     background-color: rgba(255, 244, 230, 0.838);
 }
-.wrapper-form{
+
+.wrapper-form {
     width: 70%;
     display: flex;
     flex-direction: column;
     align-items: left;
     margin-top: .6em;
 }
-.wrapper-contact > p{
+
+.wrapper-contact>p {
     text-align: center;
     padding-top: 2em;
 }
-.wrapper-form > .submit{
+
+.wrapper-form>.submit {
     padding: .3em;
-    margin-top:2em;
+    margin-top: 2em;
     width: 25%;
     font-weight: bold;
     letter-spacing: 2px;
@@ -36,11 +39,12 @@
     cursor: pointer;
 }
 
-label{
+label {
     font-weight: 800;
     margin-top: 1em;
 }
-.wrapper-form > input{
+
+.wrapper-form>input {
     height: 40px;
     border-radius: 12px;
     border: 1px solid #daabba;
@@ -50,35 +54,46 @@ label{
     color: #daabba;
     font-size: 1rem;
 }
-input:hover{
+
+input:hover {
     border: 2px solid;
 }
-.submit:disabled{
-    background-color:#cab7bd;
-    cursor: not-allowed;
-}
-textarea{
+
+textarea {
     border: 1px solid #daabba;
     outline: 0;
     padding: 4px;
     color: grey;
     height: 100px;
     resize: none;
-    
+
 }
-@media (width <600px){
-    .wrapper-form{
+
+.error-message {
+    color: #ff00519d;
+    font-weight: bolder;
+}
+
+.input-invalido {
+    border: 3px solid red;
+}
+
+@media (width <600px) {
+    .wrapper-form {
         width: 100%;
     }
-    .wrapper-contact{
-        margin:0;
+
+    .wrapper-contact {
+        margin: 0;
     }
 }
-@media(width < 400px){
-    .wrapper-form{
+
+@media(width < 400px) {
+    .wrapper-form {
         width: 100%;
     }
-    .submit{
+
+    .submit {
         width: 30%;
     }
 }
