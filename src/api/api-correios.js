@@ -42,9 +42,9 @@ export default function calculateFrete(dispatch,cep) {
           payload: { data }
         });
       })
-      // .catch((err) => {
-      //   reject(err); 
-      // });
+      .catch((err) => {
+        reject(err); 
+      });
   });
     
 }

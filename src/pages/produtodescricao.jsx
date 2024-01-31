@@ -7,6 +7,7 @@ import Void from '../components/void'
 import Main from '../components/mainProducts'
 import Siganos from '../components/siganos'
 import Footer from '../components/footer'
+import Paralax from "../components/paralaxsection"
 import card from '../assets/section/card.svg'
 import desconto from '../assets/section/desconto.svg'
 import truck from '../assets/section/truck.svg'
@@ -148,6 +149,8 @@ export default function ProdutoDescrito() {
                     titulo="Produtos Relacionados"
                     produtos={produtosRelacionados}
                 />
+                <Paralax foto="http://source.unsplash.com/random/1400x850/?Flowers" />
+            <Void/>
 
             </section>
             <Siganos />
