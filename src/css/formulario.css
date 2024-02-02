@@ -59,8 +59,16 @@ input:hover {
     border: 2px solid;
 }
 
-textarea {
+.textarea {
     border: 1px solid #daabba;
+    outline: 0;
+    padding: 4px;
+    color: grey;
+    height: 100px;
+    resize: none;
+}
+.error-textarea{
+    border: 2px solid red;
     outline: 0;
     padding: 4px;
     color: grey;

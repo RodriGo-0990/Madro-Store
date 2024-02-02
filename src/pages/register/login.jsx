@@ -13,27 +13,30 @@ import logUser from '../../api/log';
 
 const Login = () => {
     const { activeState } = useSelector(({ cartReducer }) => cartReducer);
-    const [isLoading, setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(true);
     const [responseMessage, setResponseMessage] = useState(null);
     const [responseStatus, setResponseStatus] = useState(null)
+
+    //validação de formulário
     const validationSchema = Yup.object().shape({
         email: Yup.string().email('*E-mail inválido*').required('Campo obrigatório*'),
         senha: Yup.string().required('Campo obrigatório*'),
     });
+    //======================//
 
     const handleSubmit = async (values) => {
         try {
             setLoading(true);
             const response = await logUser(values);
-                if(response.status == 200){
-                    window.alert("logado!")    
-                }else{
-                    setResponseStatus(response.status)
-                    setResponseMessage(response.msg);
-                }
-            
+            if (response.status == 200) {
+                window.alert("logado!")
+            } else {
+                setResponseStatus(response.status)
+                setResponseMessage(response.msg);
+            }
+
         } catch (e) {
-            setResponseMessage('Erro na requisição. Tente novamente.'); // ou outra mensagem de erro padrão
+            setResponseMessage('Erro na requisição. Tente novamente.');
         } finally {
             setLoading(false);
         }
