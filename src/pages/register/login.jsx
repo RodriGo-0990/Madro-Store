@@ -1,32 +1,44 @@
 import '../../css/formulario.css';
-
-import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
+import { useState } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useSelector } from 'react-redux';
-
 import Overlay from '../../components/overlay';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Siganos from '../../components/siganos';
+import Loading from '../../components/loading';
 import Void from '../../components/void';
+import logUser from '../../api/log';
 
 const Login = () => {
     const { activeState } = useSelector(({ cartReducer }) => cartReducer);
-
+    const [isLoading, setLoading] = useState(false);
+    const [responseMessage, setResponseMessage] = useState(null);
+    const [responseStatus, setResponseStatus] = useState(null)
     const validationSchema = Yup.object().shape({
-        email: Yup.string().email('E-mail inválido').required('Campo obrigatório*'),
+        email: Yup.string().email('*E-mail inválido*').required('Campo obrigatório*'),
         senha: Yup.string().required('Campo obrigatório*'),
     });
 
-    const formik = useFormik({
-        initialValues: {
-            nomeCompleto: '',
-            email: '',
-            telefone: '',
-            senha: '',
-            confirmarSenha: '',
-        },
-    })
+    const handleSubmit = async (values) => {
+        try {
+            setLoading(true);
+            const response = await logUser(values);
+                if(response.status == 200){
+                    window.alert("logado!")    
+                }else{
+                    setResponseStatus(response.status)
+                    setResponseMessage(response.msg);
+                }
+            
+        } catch (e) {
+            setResponseMessage('Erro na requisição. Tente novamente.'); // ou outra mensagem de erro padrão
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <>
             <Overlay isOpen={activeState} />
@@ -42,28 +54,38 @@ const Login = () => {
                         senha: '',
                     }}
                     validationSchema={validationSchema}
-                    onSubmit={(values) => {
-                        // Lógica de login aqui
-                        console.log(values);
-                    }}
+                    onSubmit={handleSubmit}
                 >
-                    <Form className="wrapper-form">
-                        <label>E-mail</label>
-                        <Field type="text" name="email" />
-                        <ErrorMessage name="email" component="div" className='error-message' />
+                    {({ errors, touched }) => (
+                        <Form className="wrapper-form">
+                            <label>E-mail</label>
+                            <Field
+                                type="text"
+                                name="email"
+                                className={`field ${errors.email && touched.email ? 'input-invalido' : 'field'}`}
+                            />
+                            <ErrorMessage name="email" component="div" className='error-message' />
+                            {responseStatus == 404 && (
+                                <div className='error-message'>{responseMessage}</div>
+                            )}
+                            <label>Senha</label>
+                            <Field
+                                type="password"
+                                name="senha"
+                                className={`field ${errors.senha && touched.senha ? 'input-invalido' : 'field'}`}
+                            />
+                            <ErrorMessage name="senha" component="div" className='error-message' />
 
-                        <label>Senha</label>
-                        <Field
-                            type="password"
-                            name="senha"
-                            className={formik.errors?.senha && formik.touched?.senha ? 'input-invalido' : ''}
-                        />
-                        <ErrorMessage name="senha" component="div" className='error-message' />
+                            {responseStatus == 401 && (
+                                <div className='error-message'>{responseMessage}</div>
+                            )}
 
-                        <button type="submit" className='submit'>
-                            Entrar
-                        </button>
-                    </Form>
+                            {isLoading ?
+                                <Loading /> :
+                                <button type="submit" className="submit">Entrar</button>
+                            }
+                        </Form>
+                    )}
                 </Formik>
             </div>
             <Void />
@@ -75,3 +97,4 @@ const Login = () => {
 };
 
 export default Login;
+

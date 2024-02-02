@@ -44,7 +44,7 @@ label {
     margin-top: 1em;
 }
 
-.wrapper-form>input {
+.field {
     height: 40px;
     border-radius: 12px;
     border: 1px solid #daabba;
@@ -66,7 +66,6 @@ textarea {
     color: grey;
     height: 100px;
     resize: none;
-
 }
 
 .error-message {
@@ -75,7 +74,14 @@ textarea {
 }
 
 .input-invalido {
-    border: 3px solid red;
+    height: 40px;
+    border-radius: 12px;
+    width: 100%;
+    outline: 0;
+    padding: 4px;
+    color: #daabba;
+    font-size: 1rem;
+    border: 2px solid red;
 }
 
 @media (width <600px) {
