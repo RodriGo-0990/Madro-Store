@@ -13,7 +13,7 @@ import logUser from '../../api/log';
 
 const Login = () => {
     const { activeState } = useSelector(({ cartReducer }) => cartReducer);
-    const [isLoading, setLoading] = useState(true);
+    const [isLoading, setLoading] = useState(false);
     const [responseMessage, setResponseMessage] = useState(null);
     const [responseStatus, setResponseStatus] = useState(null)
 
