@@ -20,8 +20,8 @@ function App() {
   useEffect(()=>{
     loadProducts(dispatch);
   },[] )
-  const destaques = produtos;
-  const lancamentos = produtos;
+  const destaques = produtos.slice(0, (produtos.length /2));
+  const lancamentos = produtos.slice((produtos.length /2), produtos.length);
   //===pega o estado do carrinho===//
   const { activeState } = useSelector(({ cartReducer }) => cartReducer);
 

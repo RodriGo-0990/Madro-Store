@@ -6,7 +6,7 @@ const initialState = {
 }
 const allProductReducer = (state = initialState, action) => {
     if (action.type === actionTypes.GETALL) {
-        const prods = action.payload.data.retorno.produtos.map((item) => ({
+        const prods = action.payload.retorno.produtos.map((item) => ({
             foto: item.produto.imagem[0].link || "",
             nome: item.produto.descricao || "",
             valor: parseFloat(item.produto.preco) || "",
