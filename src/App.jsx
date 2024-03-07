@@ -12,6 +12,7 @@ import Siganos from './components/siganos';
 import Footer from './components/footer';
 import fundo from './assets/madro/voce_pode.jpg';
 import loadProducts from "./api/api-bling";
+import loadRoses from "./assets/loadRoses";
 
 function App() {
   //recuperando os valores dos produtos com Redux
@@ -42,7 +43,7 @@ function App() {
       />
       <Newsletter />
       <Void />
-      <Paralax foto="http://source.unsplash.com/random/1400x850/?rosas" />
+      <Paralax foto={loadRoses()} />
       <Void />
       <Siganos />
       <Void />
