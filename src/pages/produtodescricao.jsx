@@ -12,6 +12,7 @@ import card from '../assets/section/card.svg'
 import desconto from '../assets/section/desconto.svg'
 import truck from '../assets/section/truck.svg'
 import cartActionTypes from "../Redux/cart/actiontype";
+import loadRoses from '../assets/loadRoses';
 
 export default function ProdutoDescrito() {
     //===pega o estado do carrinho===//
@@ -149,7 +150,7 @@ export default function ProdutoDescrito() {
                     titulo="Produtos Relacionados"
                     produtos={produtosRelacionados}
                 />
-                <Paralax foto="http://source.unsplash.com/random/1400x850/?Flowers" />
+                <Paralax foto={loadRoses()} />
             <Void/>
 
             </section>

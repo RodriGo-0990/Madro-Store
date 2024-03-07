@@ -11,6 +11,7 @@ import Produtos from '../components/produtos'
 import Paralax from "../components/paralaxsection";
 import Void from '../components/void';
 import Siganos from '../components/siganos';
+import loadRoses from '../assets/loadRoses';
 
 export default function PaginaProdutos() {
     //recuperando os valores dos produtos com Redux
@@ -77,7 +78,7 @@ export default function PaginaProdutos() {
                 />
             </div>
             <Void />
-            <Paralax foto="http://source.unsplash.com/random/1400x850/?gift" />
+            <Paralax foto={loadRoses()} />
             <Void />
             <Siganos />
             <Void />
